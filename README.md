@@ -27,6 +27,9 @@ This folder also contains code licensed separately:
 INSTALLATION
 ------------
 
+Use `$ yarn global add less` to install the `LESS` compiler (`lessc`).
+Or use `$ npm -g i less` if you prefer using `npm`.
+
 All styles are written using LESS syntax. Thus it needs to be compiled
 using the `lessc` command line tool. This comes with the `nodejs-less`
 RPM package which depends on nodejs.
