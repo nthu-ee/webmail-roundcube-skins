@@ -57,15 +57,25 @@ for file_src in "${JS_FILES[@]}"; do
     echo "Begin transpile '${file_src}'..."
     echo "==================================="
 
+    file_export=${file_src%.*}.export.js
     file_dst=${file_src%.*}.min.js
 
+    if [ ! -f "${file_export}" ]; then
+        has_no_file_export=true
+        touch "${file_export}"
+    fi
+
     # to make the output file more diff-friendly, we beautify it and remove leading spaces
-    cat "${JS_GLOBAL_VARS_FILE}" "${file_src}" \
+    cat "${JS_GLOBAL_VARS_FILE}" "${file_src}" "${file_export}" \
         | babel --filename "${file_src}" \
         | browserify - \
         | uglifyjs --compress --mangle --beautify \
         | sed -E 's/^ +//g' \
         > "${file_dst}"
+
+    if [ "${has_no_file_export}" = "true" ]; then
+        rm -f "${file_export}"
+    fi
 done
 
 
