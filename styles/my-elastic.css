@@ -7,7 +7,7 @@ html.layout-phone #layout-menu .popover-header {
   border-bottom: 1px #f1f3f4 solid;
   color: #2c363a;
 }
-html.layout-phone #logo {
+html.layout-phone body:not(.task-login) #logo {
   display: none;
 }
 html:not(.layout-phone) #layout-menu .popover-header {
