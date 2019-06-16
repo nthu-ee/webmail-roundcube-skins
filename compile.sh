@@ -16,6 +16,10 @@ LESS_FILES=(
     "styles/styles.less"
 )
 
+JS_FILES=(
+    "ui.js"
+)
+
 
 #-------#
 # begin #
@@ -36,6 +40,16 @@ for LESS_FILE in "${LESS_FILES[@]}"; do
     file_compiled=${LESS_FILE%.*}.css
 
     lessc "${LESS_FILE}" > "${file_compiled}"
+done
+
+for JS_FILE in "${JS_FILES[@]}"; do
+    echo "==================================="
+    echo "Begin minify '${JS_FILE}'..."
+    echo "==================================="
+
+    file_compiled=${JS_FILE%.*}.min.js
+
+    babel "${JS_FILE}" -o "${file_compiled}"
 done
 
 
