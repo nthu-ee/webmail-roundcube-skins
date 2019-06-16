@@ -1,0 +1,12 @@
+.idea/
+.tags*
+.yarn-integrity
+*.swp
+
+building.lock
+npm-debug.log
+yarn-error.log
+
+# git worktree
+/br-*/
+/branch-*/
