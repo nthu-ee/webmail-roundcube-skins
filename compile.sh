@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 #--------------------------------------------------#
-# This script compiles some extensions for PHP 7+. #
+# This script compiles asset files.                #
 #                                                  #
 # Author: Jack Cherng <jfcherng@gmail.com>         #
 #--------------------------------------------------#
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 THREAD_CNT=$(getconf _NPROCESSORS_ONLN)
+PROJECT_ROOT=${SCRIPT_DIR}
 
 LESS_FILES=(
     "styles/embed.less"
@@ -20,6 +21,8 @@ JS_FILES=(
     "ui.js"
 )
 
+PATH=${PROJECT_ROOT}/node_modules/.bin:${PATH}
+
 
 #-------#
 # begin #
@@ -27,32 +30,34 @@ JS_FILES=(
 
 pushd "${SCRIPT_DIR}" || exit
 
-LESSC=$(pwd)/node_modules/.bin/lessc
-BABEL_CLI=$(pwd)/node_modules/.bin/babel
-
 
 #--------------------#
 # compile LESS files #
 #--------------------#
 
-for LESS_FILE in "${LESS_FILES[@]}"; do
+for file_src in "${LESS_FILES[@]}"; do
     echo "==================================="
-    echo "Begin compile '${LESS_FILE}'..."
+    echo "Begin compile '${file_src}'..."
     echo "==================================="
 
-    file_compiled=${LESS_FILE%.*}.css
+    file_dst=${file_src%.*}.css
 
-    "${LESSC}" "${LESS_FILE}" > "${file_compiled}"
+    lessc "${file_src}" > "${file_dst}"
 done
 
-for JS_FILE in "${JS_FILES[@]}"; do
+
+#----------------------------#
+# transpile Javascript files #
+#----------------------------#
+
+for file_src in "${JS_FILES[@]}"; do
     echo "==================================="
-    echo "Begin minify '${JS_FILE}'..."
+    echo "Begin transpile '${file_src}'..."
     echo "==================================="
 
-    file_compiled=${JS_FILE%.*}.min.js
+    file_dst=${file_src%.*}.min.js
 
-    "${BABEL_CLI}" "${JS_FILE}" -o "${file_compiled}"
+    babel "${file_src}" -o "${file_dst}"
 done
 
 
