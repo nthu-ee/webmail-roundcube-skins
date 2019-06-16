@@ -27,7 +27,7 @@ This folder also contains code licensed separately:
 INSTALLATION
 ------------
 
-Install either `npm` or `yarn` and then run `install-dev.sh`.
+To install dev dependencies, run `$ yarn install`.
 
 All styles are written using LESS syntax. Thus it needs to be compiled
 using the `lessc` command line tool. This comes with the `nodejs-less`

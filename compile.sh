@@ -21,6 +21,8 @@ JS_FILES=(
     "ui.js"
 )
 
+JS_GLOBAL_VARS_FILE=${PROJECT_ROOT}/rc.globalVars.js
+
 PATH=${PROJECT_ROOT}/node_modules/.bin:${PATH}
 
 
@@ -57,7 +59,13 @@ for file_src in "${JS_FILES[@]}"; do
 
     file_dst=${file_src%.*}.min.js
 
-    babel "${file_src}" -o "${file_dst}"
+    # to make the output file more diff-friendly, we beautify it and remove leading spaces
+    cat "${JS_GLOBAL_VARS_FILE}" "${file_src}" \
+        | babel --filename "${file_src}" \
+        | browserify - \
+        | uglifyjs --compress --mangle --beautify \
+        | sed -E 's/^ +//g' \
+        > "${file_dst}"
 done
 
 
