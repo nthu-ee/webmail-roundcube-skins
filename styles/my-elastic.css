@@ -1,4 +1,5 @@
 .task-login #logo {
+  width: 200px;
   max-height: 200px;
 }
 html.layout-phone #layout-menu .popover-header {
@@ -14,6 +15,11 @@ html:not(.layout-phone) #layout-menu .popover-header {
   box-sizing: border-box;
   border-bottom: 1px #d4dbde solid;
   border-right: 1px #d4dbde solid;
+}
+html:not(.layout-phone) #layout-menu .popover-header img {
+  height: 58px;
+  max-width: 78px;
+  padding: 0.25rem;
 }
 html:not(.layout-phone) #logo-phone,
 html:not(.layout-phone) #logo-title {

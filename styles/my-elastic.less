@@ -1,5 +1,8 @@
 .task-login #logo {
-    max-height: 200px;
+    @logo-dimension: 200px;
+
+    width: @logo-dimension;
+    max-height: @logo-dimension;
 }
 
 html {
@@ -21,6 +24,12 @@ html {
             box-sizing: border-box;
             border-bottom: 1px #d4dbde solid;
             border-right: 1px #d4dbde solid;
+
+            img {
+                height: 58px;
+                max-width: 78px;
+                padding: 0.25rem;
+            }
         }
 
         #logo-phone,
