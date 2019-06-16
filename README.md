@@ -65,20 +65,20 @@ FOR DEVELOPERS
 ```
     <body>
         <div id="layout">
-            <div class="menu"></div>
-            <div class="sidebar"></div>
-            <div class="list"></div>
-            <div class="content"></div>
+            <div id="layout-menu"></div>
+            <div id="layout-sidebar"></div>
+            <div id="layout-list"></div>
+            <div id="layout-content"></div>
         </div>
     </body>
 ```
-  where `sidebar` and `list` are optional. Which element of the `layout` will be displayed
+  where `#layout-sidebar` and `#layout-list` are optional. Which element of the `#layout` will be displayed
   as a main view on mobile devices can be defined by adding `selected` class to it.
 
 - The `<html>` element will receive special classes that will be updated on resize
   or orientation change:
     - `touch`: A touch device, screen width <= 1024px,
-    - 'layout-large`: Screen width > 1200px,
+    - `layout-large`: Screen width > 1200px,
     - `layout-normal`: Screen width <= 1200px and >= 768px,
     - `layout-small`: Screen width < 768px and > 480px,
     - `layout-phone`: Screen width <= 480px.
