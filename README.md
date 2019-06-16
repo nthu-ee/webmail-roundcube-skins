@@ -27,7 +27,7 @@ This folder also contains code licensed separately:
 INSTALLATION
 ------------
 
-Use either `npm` or `yarn` to install dependencies such as `$ yarn add less babel-cli @babel/core @babel/preset-env @babel/plugin-transform-runtime babel-preset-minify core-js@3` to install requirements.
+Install either `npm` or `yarn` and then run `install-dev.sh`.
 
 All styles are written using LESS syntax. Thus it needs to be compiled
 using the `lessc` command line tool. This comes with the `nodejs-less`
