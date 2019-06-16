@@ -27,6 +27,9 @@ JS_FILES=(
 
 pushd "${SCRIPT_DIR}" || exit
 
+LESSC=$(pwd)/node_modules/.bin/lessc
+BABEL_CLI=$(pwd)/node_modules/.bin/babel
+
 
 #--------------------#
 # compile LESS files #
@@ -39,7 +42,7 @@ for LESS_FILE in "${LESS_FILES[@]}"; do
 
     file_compiled=${LESS_FILE%.*}.css
 
-    lessc "${LESS_FILE}" > "${file_compiled}"
+    "${LESSC}" "${LESS_FILE}" > "${file_compiled}"
 done
 
 for JS_FILE in "${JS_FILES[@]}"; do
@@ -49,7 +52,7 @@ for JS_FILE in "${JS_FILES[@]}"; do
 
     file_compiled=${JS_FILE%.*}.min.js
 
-    babel "${JS_FILE}" -o "${file_compiled}"
+    "${BABEL_CLI}" "${JS_FILE}" -o "${file_compiled}"
 done
 
 
