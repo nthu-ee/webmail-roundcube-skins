@@ -3,7 +3,8 @@
 .yarn-integrity
 *.swp
 
-/node_modules
+/node_modules/
+/*/node_modules/
 
 building.lock
 npm-debug.log
