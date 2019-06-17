@@ -69,8 +69,7 @@ for file_src in "${JS_FILES[@]}"; do
     cat "${JS_GLOBAL_VARS_FILE}" "${file_src}" "${file_export}" \
         | babel --filename "${file_src}" \
         | browserify - \
-        | uglifyjs --compress --mangle --beautify \
-        | sed -E 's/^ +//g' \
+        | uglifyjs --compress --mangle --beautify indent_level=0 \
         > "${file_dst}"
 
     if [ "${has_no_file_export}" = "true" ]; then
