@@ -1,3 +1,6 @@
+@import (reference) "mixins";
+@import (reference) "variables";
+
 .task-login #logo {
     @logo-dimension: 200px;
 
@@ -36,5 +39,13 @@ html {
         #logo-title {
             display: none;
         }
+    }
+}
+
+.fa, .fas {
+    font-family: Icons;
+
+    &.fa-exclamation-triangle:before {
+        .font-icon-solid(@fa-var-exclamation-triangle);
     }
 }

@@ -25,3 +25,12 @@ html:not(.layout-phone) #logo-phone,
 html:not(.layout-phone) #logo-title {
   display: none;
 }
+.fa,
+.fas {
+  font-family: Icons;
+}
+.fa.fa-exclamation-triangle:before,
+.fas.fa-exclamation-triangle:before {
+  content: "\f071";
+  font-weight: 900;
+}

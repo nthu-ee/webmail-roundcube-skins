@@ -6,6 +6,12 @@
 	<roundcube:object name="logo" src="/images/logo.svg" data-src-small="0" id="logo" alt="Logo" />
 	<roundcube:form id="login-form" name="login-form" method="post" class="propform">
 	<roundcube:object name="loginform" form="login-form" size="40" submit=true />
+		<p id="login-extra-info">
+			<span class="btn btn-danger btn-lg w-100 font-weight-bold">
+				<span class="fas fa-exclamation-triangle"></span>
+				本系統尚在測試中（<roundcube:object name="version" />）
+			</span>
+		</p>
 		<div id="login-footer" role="contentinfo">
 			<span>
 				<roundcube:object name="productname" condition="config:display_product_info &gt; 0" />
