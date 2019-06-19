@@ -1,57 +1,46 @@
-/**
- * Roundcube Webmail styles for the Elastic skin
- *
- * Copyright (c) The Roundcube Dev Team
- *
- * The contents are subject to the Creative Commons Attribution-ShareAlike
- * License. It is allowed to copy, distribute, transmit and to adapt the work
- * by keeping credits to the original authors in the README.md file.
- * See http://creativecommons.org/licenses/by-sa/3.0/ for details.
- */
-/*** Additional styles for printouts ***/
 body {
   overflow: auto;
-  height: auto;
+  height: auto
 }
 #print-layout {
-  margin: 1rem;
+  margin: 1rem
 }
 #print-layout .image-attachment .image-link {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem
 }
 #print-layout .image-attachment .attachment-links {
-  display: none;
+  display: none
 }
 #print-layout .header-content .message-partheaders {
-  padding: 0 !important;
+  padding: 0!important;
   border: 0;
   font-size: 1rem;
-  color: inherit;
+  color: inherit
 }
 #print-layout #message-header {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem
 }
 #print-layout .attachment-size {
-  padding-left: 0.1rem;
+  padding-left: .1rem
 }
 #print-layout .formcontent {
-  padding: 0;
+  padding: 0
 }
 #print-layout .formcontent legend {
-  margin-top: 0.5rem;
+  margin-top: .5rem
 }
 #print-layout .formcontent .row .form-control-plaintext {
-  padding: 0.1rem;
+  padding: .1rem
 }
 #print-layout .formcontent .contactfield {
-  padding: 0.2rem 0;
+  padding: .2rem 0
 }
 #print-layout .propform.groupped .row.input-group .input-group-text {
   padding: 0;
   min-width: 12rem;
   background: #fff;
-  border: 0;
+  border: 0
 }
 #print-layout .contact-header {
-  margin-bottom: 0;
+  margin-bottom: 0
 }
