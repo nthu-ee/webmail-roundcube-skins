@@ -2,7 +2,9 @@
 
 <h1 class="voice"><roundcube:object name="productname" /> <roundcube:label name="login" /></h1>
 
-<div id="layout-content" class="selected no-navbar" role="main">
+<!-- to avoid CSS flickering, show the login form when DOMs are all ready -->
+<script>$(function() { $('#layout-content').removeClass('transparent'); });</script>
+<div id="layout-content" class="selected no-navbar transparent" role="main">
 	<roundcube:object name="logo" src="/images/logo-login.png" data-src-small="0" id="logo" alt="Logo" />
 	<roundcube:form id="login-form" name="login-form" method="post" class="propform">
 	<roundcube:object name="loginform" form="login-form" size="40" submit=true />

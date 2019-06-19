@@ -5563,7 +5563,8 @@ body.task-login #layout {
   justify-content: center
 }
 body.task-login #layout-content {
-  background-color: transparent
+  background-color: transparent;
+  transition: opacity .5s linear
 }
 body.task-login #logo {
   width: 272px;
@@ -5573,6 +5574,12 @@ body.task-login #logo {
 body.task-login #login-form,
 body.task-login #logo {
   top: 0
+}
+.transparent {
+  opacity: 0
+}
+.opaque {
+  opacity: 1
 }
 .fa,
 .fas {
