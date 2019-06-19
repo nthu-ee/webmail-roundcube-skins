@@ -1502,7 +1502,7 @@ html.touch .btn:focus {
 .ui-datepicker .ui-state-highlight,
 .ui-datepicker.ui-widget-content .ui-state-highlight {
   background: #d0f0ff;
-  color: !default;
+  color: #37beff;
 }
 .ui-datepicker a.ui-state-active {
   background: #37beff !important;
