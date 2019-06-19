@@ -1,6 +1,8 @@
 @import (reference) "mixins";
 @import (reference) "variables";
 
+@logo-login-dimension: 320px * .85;
+
 html {
     &.layout-phone {
         #layout-menu .popover-header {
@@ -49,10 +51,8 @@ body.task-login {
     }
 
     #logo {
-        @logo-dimension: 225px;
-
-        width: @logo-dimension;
-        max-height: @logo-dimension;
+        width: @logo-login-dimension;
+        max-height: @logo-login-dimension;
         margin-bottom: 2rem;
     }
 
