@@ -1,27 +1,6 @@
 @import (reference) "mixins";
 @import (reference) "variables";
 
-.task-login {
-    #layout {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #logo {
-        @logo-dimension: 225px;
-
-        width: @logo-dimension;
-        max-height: @logo-dimension;
-        margin-bottom: 2rem;
-    }
-
-    #logo,
-    #login-form {
-        top: 0;
-    }
-}
-
 html {
     &.layout-phone {
         #layout-menu .popover-header {
@@ -53,6 +32,33 @@ html {
         #logo-title {
             display: none;
         }
+    }
+}
+
+body.task-login {
+    background: url(../images/blossom_mono.png) no-repeat center #fff;
+
+    #layout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #layout-content {
+        background-color: transparent;
+    }
+
+    #logo {
+        @logo-dimension: 225px;
+
+        width: @logo-dimension;
+        max-height: @logo-dimension;
+        margin-bottom: 2rem;
+    }
+
+    #logo,
+    #login-form {
+        top: 0;
     }
 }
 

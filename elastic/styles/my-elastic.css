@@ -1,17 +1,3 @@
-.task-login #layout {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.task-login #logo {
-  width: 225px;
-  max-height: 225px;
-  margin-bottom: 2rem;
-}
-.task-login #logo,
-.task-login #login-form {
-  top: 0;
-}
 html.layout-phone #layout-menu .popover-header {
   background: white !important;
   border-bottom: 1px #f1f3f4 solid;
@@ -34,6 +20,26 @@ html:not(.layout-phone) #layout-menu .popover-header img {
 html:not(.layout-phone) #logo-phone,
 html:not(.layout-phone) #logo-title {
   display: none;
+}
+body.task-login {
+  background: url(../images/blossom_mono.png) no-repeat center #fff;
+}
+body.task-login #layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.task-login #layout-content {
+  background-color: transparent;
+}
+body.task-login #logo {
+  width: 225px;
+  max-height: 225px;
+  margin-bottom: 2rem;
+}
+body.task-login #logo,
+body.task-login #login-form {
+  top: 0;
 }
 .fa,
 .fas {
