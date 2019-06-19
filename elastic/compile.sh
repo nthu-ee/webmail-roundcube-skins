@@ -12,7 +12,6 @@ PROJECT_ROOT=${SCRIPT_DIR}
 
 LESS_FILES=(
     "styles/embed.less"
-    "styles/my-elastic.less"
     "styles/print.less"
     "styles/styles.less"
 )
@@ -44,7 +43,7 @@ for file_src in "${LESS_FILES[@]}"; do
 
     file_dst=${file_src%.*}.css
 
-    lessc "${file_src}" > "${file_dst}"
+    lessc --insecure "${file_src}" > "${file_dst}"
 done
 
 
