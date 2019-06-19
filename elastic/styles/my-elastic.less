@@ -1,11 +1,25 @@
 @import (reference) "mixins";
 @import (reference) "variables";
 
-.task-login #logo {
-    @logo-dimension: 200px;
+.task-login {
+    #layout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    width: @logo-dimension;
-    max-height: @logo-dimension;
+    #logo {
+        @logo-dimension: 200px;
+
+        width: @logo-dimension;
+        max-height: @logo-dimension;
+        margin-bottom: 2rem;
+    }
+
+    #logo,
+    #login-form {
+        top: 0;
+    }
 }
 
 html {
