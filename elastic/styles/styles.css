@@ -5539,9 +5539,6 @@ html.layout-phone #layout-menu .popover-header {
 html.layout-phone body:not(.task-login) #logo {
   display: none
 }
-html:not(.layout-phone) #layout-menu .popover-header {
-  background: #2f3a3f!important
-}
 html:not(.layout-phone) #layout-menu .popover-header img {
   width: 100%;
   height: 100%;
