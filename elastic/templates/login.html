@@ -6,20 +6,23 @@
 <script>$(function() { $('#layout-content').removeClass('transparent'); });</script>
 <div id="layout-content" class="selected no-navbar transparent" role="main">
 	<roundcube:object name="logo" src="/images/logo-login.png" data-src-small="0" id="logo" alt="Logo" />
+	<h4 id="product-title" style="margin-top:-1rem; margin-bottom:2rem">
+		<roundcube:object name="productname" condition="config:display_product_info &gt; 0" />
+		<roundcube:if condition="config:display_product_info == 2" />
+			<span class="badge badge-success" title="Powered by Roundcube" data-toggle="tooltip">
+				<roundcube:object name="version" />
+			</span>
+		<roundcube:endif />
+	</h4>
 	<roundcube:form id="login-form" name="login-form" method="post" class="propform">
 	<roundcube:object name="loginform" form="login-form" size="40" submit=true />
 		<p id="login-extra-info">
 			<span class="btn btn-danger btn-lg w-100 font-weight-bold">
 				<span class="fas fa-exclamation-triangle"></span>
-				本系統尚在測試中（<roundcube:object name="version" />）
+				本系統尚在測試中
 			</span>
 		</p>
 		<div id="login-footer" role="contentinfo">
-			<span>
-				<roundcube:object name="productname" condition="config:display_product_info &gt; 0" />
-				<roundcube:object name="version" condition="config:display_product_info == 2" />
-			</span>
-			&nbsp;&bull;&nbsp;
 			<a href="https://rcmail.ee.nthu.edu.tw/" title="此系統不收信，僅供閱讀舊信件。" data-toggle="tooltip">
 				舊信件系統
 			</a>

@@ -5569,6 +5569,11 @@ body.task-login #login-form,
 body.task-login #logo {
   top: 0
 }
+body.task-login #product-title > .badge {
+  font-size: 60%;
+  vertical-align: sub;
+  margin-left: .5em
+}
 .transparent {
   opacity: 0
 }
