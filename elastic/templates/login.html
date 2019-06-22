@@ -19,7 +19,7 @@
 				<roundcube:object name="productname" condition="config:display_product_info &gt; 0" />
 				<roundcube:object name="version" condition="config:display_product_info == 2" />
 			</span>
-			&nbsp;&bull;&nbsp; <a href="https://rcmail.ee.nthu.edu.tw/" title="已不再收信，僅供閱讀舊信件。">舊信件系統</a>
+			&nbsp;&bull;&nbsp; <a href="https://rcmail.ee.nthu.edu.tw/" title="已不再收信，僅供閱讀舊信件。" data-toggle="tooltip">舊信件系統</a>
 			<roundcube:if condition="config:support_url" />
 				&nbsp;&bull;&nbsp; <a href="<roundcube:var name='config:support_url' />" target="_blank" class="support-link"><roundcube:label name="support" /></a>
 			<roundcube:endif />
