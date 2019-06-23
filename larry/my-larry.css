@@ -5,3 +5,22 @@
 #toplogo {
   height: 42px;
 }
+
+/********************/
+/* font adjustments */
+/********************/
+
+body {
+  /* PMingLiU = 新細明體 */
+  font-family: "Lucida Grande", Verdana, Arial, Helvetica, PMingLiU, sans-serif;
+  font-size: 12px;
+}
+
+.ui-widget {
+  /* PMingLiU = 新細明體 */
+  font-family: Arial, Helvetica, PMingLiU, sans-serif !important;
+}
+
+div.message-part div.pre {
+  font-size: 13px;
+}
