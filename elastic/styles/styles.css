@@ -5574,6 +5574,9 @@ body.task-login #product-title > .badge {
   vertical-align: sub;
   margin-left: .5em
 }
+body.task-login #rcmloginsubmit {
+  font-weight: 700
+}
 .transparent {
   opacity: 0
 }
