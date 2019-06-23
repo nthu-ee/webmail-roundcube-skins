@@ -59,11 +59,15 @@ body.task-login {
         top: 0;
     }
 
-    #product-title > .badge {
-        // background-color: @NTHU-color;
-        font-size: 60%;
-        vertical-align: sub;
-        margin-left: 0.5em;
+    #product-title {
+        font-family: Roboto, sans-serif;
+
+        > .badge {
+            // background-color: @NTHU-color;
+            font-size: 60%;
+            vertical-align: sub;
+            margin-left: 0.5em;
+        }
     }
 
     #rcmloginsubmit {
@@ -85,4 +89,29 @@ body.task-login {
     &.fa-exclamation-triangle:before {
         .font-icon-solid(@fa-var-exclamation-triangle);
     }
+}
+
+/********************/
+/* font adjustments */
+/********************/
+
+body, button, input, optgroup, select, textarea, .popover {
+    font-family: @base-font-family;
+}
+
+.tooltip {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        PMingLiU,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji";
 }

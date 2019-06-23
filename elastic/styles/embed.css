@@ -78,7 +78,7 @@ a.disabled:not(.btn) {
 }
 .rcmail-inline-message {
   font-family: Roboto,sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   padding: .5em;
   margin: 0 0 .5em 0;
   opacity: .95;
