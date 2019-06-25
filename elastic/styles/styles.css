@@ -5577,6 +5577,9 @@ body.task-login #product-title > .badge {
 body.task-login #rcmloginsubmit {
   font-weight: 700
 }
+#message-header .short-header img.contactphoto {
+  border-radius: 10%
+}
 .transparent {
   opacity: 0
 }
