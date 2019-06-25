@@ -242,7 +242,6 @@ html.iframe #layout-content {
 }
 #layout-content .iframe-wrapper {
   width: 100%;
-  height: 100%;
   flex: 1
 }
 #layout-content .iframe-wrapper iframe {
@@ -846,7 +845,7 @@ fieldset.tab-pane table.table thead th {
   border: 0
 }
 table.table tr.deleted td {
-  color: #8b9fa7!important
+  color: rgba(44,54,58,.5)!important
 }
 .table thead th {
   border-width: 1px;
@@ -2415,8 +2414,7 @@ html.layout-phone .menu.pagenav input {
 }
 @media screen and (max-width:480px) {
   .ui.alert {
-    border: 0;
-    min-height: 4.2rem
+    border: 0
   }
 }
 .ui.alert span {
@@ -2557,7 +2555,8 @@ html.layout-phone .menu.pagenav input {
 @media screen and (max-width:480px) {
   #messagestack div {
     margin: 0;
-    border-radius: 0
+    border-radius: 0;
+    min-height: 4.2rem
   }
 }
 #messagestack div.voice {
@@ -2572,11 +2571,6 @@ html.layout-phone .menu.pagenav input {
 }
 #messagestack div:last-child {
   margin-bottom: 0
-}
-@media screen and (max-width:480px) {
-  #messagestack div {
-    margin: 0
-  }
 }
 #messagestack .loading {
   background-color: #6b7275
@@ -2672,7 +2666,7 @@ html.layout-phone .menu.pagenav input {
 }
 .listing li.disabled,
 .listing tr.disabled td {
-  color: #8b9fa7
+  color: rgba(44,54,58,.5)
 }
 .listing li > a.virtual,
 .listing li.virtual > a {
@@ -3104,7 +3098,7 @@ table.fixedcopy {
 .messagelist tr.deleted td.subject span.date,
 .messagelist tr.deleted td.subject span.fromto,
 .messagelist tr.deleted td.subject span.subject a {
-  color: #8b9fa7
+  color: rgba(44,54,58,.5)
 }
 .messagelist tr.unread td.subject span.subject {
   font-weight: 700
@@ -5512,7 +5506,7 @@ body.status-flagged #message-header .subject:before {
   margin: 0
 }
 #compose-attachments {
-  margin: .5rem .5rem 0 .5rem
+  margin: 1rem 1rem 0 1rem
 }
 #composestatusbar {
   position: absolute;
