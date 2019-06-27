@@ -29,5 +29,15 @@ header('Cache-Control: no-cache, private');
     <br>
     <img src="<?= assetVersioned('images/change-mail-list-layout.png'); ?>">
   </p>
+
+  <hr>
+
+  <h1 id="add-to-screen-desktop">將網站加到行動裝置的主畫面</h1>
+  <p>
+    以下以 Google Chrome Mobile 為例。
+    <br>
+    <br>
+    <img src="<?= assetVersioned('images/add-to-screen-desktop.png'); ?>">
+  </p>
 </body>
 </html>
