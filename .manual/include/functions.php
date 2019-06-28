@@ -2,6 +2,10 @@
 
 $version = '20190624a';
 
+$docRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
+$rcRoot = \realpath(__DIR__ . '/../../..');
+$manualRoot = \realpath(__DIR__ . '/..');
+
 /**
  * Make a URL versionized. Usually to prevent from being cached.
  *
@@ -11,12 +15,28 @@ $version = '20190624a';
  */
 function assetVersioned(string $url): string
 {
-    global $version;
+    global $version, $docRoot, $manualRoot;
+
+    // local file
+    if (\strpos($url, '//') === false) {
+        $v = \strpos($url, '/') !== 0
+            // relative to manual root dir
+            ? @\filemtime("{$manualRoot}/{$url}")
+            // relative to doc root dir
+            : @\filemtime("{$docRoot}/{$url}");
+
+        // fail to get file modified time
+        $v = $v ?: $version;
+    }
+    // remote file
+    else {
+        $v = $version;
+    }
 
     $parts = \parse_url($url);
 
     $queries = proper_parse_str($parts['query'] ?? '');
-    $queries['v'] = $version;
+    $queries['v'] = $v;
 
     $parts['query'] = \http_build_query($queries);
 
