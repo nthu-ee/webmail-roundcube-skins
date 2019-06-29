@@ -20,7 +20,7 @@ JS_FILES=(
     "ui.js"
 )
 
-JS_GLOBAL_VARS_FILE=${PROJECT_ROOT}/rc.globalVars.js
+JS_GLOBAL_VARS_FILE=${PROJECT_ROOT}/rc-global-vars.js
 
 PATH=${PROJECT_ROOT}/node_modules/.bin:${PATH}
 

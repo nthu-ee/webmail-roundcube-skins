@@ -1,0 +1,10 @@
+# EditorConfig is awesome: https://EditorConfig.org
+root = false
+
+[rc-global-vars.js]
+indent_size = 2
+indent_style = js
+
+[ui.export.js]
+indent_size = 2
+indent_style = js
