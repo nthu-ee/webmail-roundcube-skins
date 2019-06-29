@@ -10,7 +10,10 @@
 		<roundcube:object name="productname" condition="config:display_product_info &gt; 0" />
 		<roundcube:if condition="config:display_product_info == 2" />
 			<span class="badge badge-success" title="Powered by Roundcube" data-toggle="tooltip">
-				<roundcube:object name="version" />
+				<a class="text-white text-decoration-none"
+					href="https://github.com/jfcherng/roundcubemail" target="_blank">
+					<roundcube:object name="version" />
+				</a>
 			</span>
 		<roundcube:endif />
 	</h4>
