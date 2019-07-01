@@ -5560,6 +5560,9 @@ body.task-login #login-form,
 body.task-login #logo {
   top: 0
 }
+body.task-login #login-footer {
+  font-size: 1.35rem
+}
 body.task-login #product-title {
   font-family: Roboto,sans-serif
 }

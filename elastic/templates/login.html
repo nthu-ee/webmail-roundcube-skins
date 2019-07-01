@@ -28,21 +28,22 @@
 		</p>
 		-->
 		<div id="login-footer" role="contentinfo">
-			<a href="https://rcmail.ee.nthu.edu.tw/" title="此系統不收信，僅供閱讀舊信件。" data-toggle="tooltip">
+			<a href="https://rcmail.ee.nthu.edu.tw/" class="support-link badge badge-danger"
+				title="此系統不收信，僅供閱讀舊信件。" data-toggle="tooltip">
 				舊信件系統
 			</a>
 			<!-- must have this merged https://github.com/roundcube/roundcubemail/pull/6829 -->
 			<roundcube:if condition="config:support_url" />
-				&nbsp;&bull;&nbsp;
-				<!-- the support link is begin with "mailto:" -->
 				<roundcube:if condition="stripos(config:support_url, 'mailto:') === 0" />
-					<a href="<roundcube:var name='config:support_url' />" class="support-link"
+					<!-- the support link is begin with "mailto:" -->
+					<a href="<roundcube:var name='config:support_url' />" class="support-link badge badge-warning"
 						title="<roundcube:exp expression='substr(config:support_url, 7)' />" data-toggle="tooltip">
 						寫信給網管
 					</a>
-				<!-- support link is not writing an email -->
 				<roundcube:else />
-					<a href="<roundcube:var name='config:support_url' />" target="_blank" class="support-link">
+					<!-- support link is not writing an email -->
+					<a href="<roundcube:var name='config:support_url' />" target="_blank"
+						class="support-link badge badge-warning">
 						<roundcube:label name="support" />
 					</a>
 				<roundcube:endif />
