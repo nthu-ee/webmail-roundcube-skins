@@ -78,11 +78,9 @@ for file_src in "${JS_FILES[@]}"; do
 
     # to make the output file more diff-friendly, we beautify it and remove leading spaces
     cat "${JS_GLOBAL_VARS_FILE}" "${file_src}" "${file_export}" \
-        | babel --filename "${file_src}" \
-        | browserify - \
-        | uglifyjs --compress --mangle --beautify indent_level=0 \
+        | browserify -t [ babelify ] - \
+        | terser --config-file terser.json -- \
         | sed -e 's/[[:space:]]+$//' \
-        | printf "/* eslint-disable */\n%s\n" "$(cat -)" \
         > "${file_dst}"
 
     if [ "${has_no_file_export}" = "true" ]; then
