@@ -36,19 +36,21 @@
 				title="幫助使用者適應新版本" data-toggle="tooltip">
 				新版本說明手冊
 			</a>
-			<!-- the support link is begin with "mailto:" -->
-			<roundcube:if condition="config:support_url && stripos(config:support_url, 'mailto:') === 0" />
+			<!-- must have this merged https://github.com/roundcube/roundcubemail/pull/6829 -->
+			<roundcube:if condition="config:support_url" />
 				&nbsp;&bull;&nbsp;
-				<a href="<roundcube:var name='config:support_url' />" class="support-link"
-					title="<roundcube:exp expression='substr(config:support_url, 7)' />" data-toggle="tooltip">
-					寫信給網管
-				</a>
-			<!-- support link is not writing an email -->
-			<roundcube:elseif condition="config:support_url && stripos(config:support_url, 'mailto:') !== 0" />
-				&nbsp;&bull;&nbsp;
-				<a href="<roundcube:var name='config:support_url' />" target="_blank" class="support-link">
-					<roundcube:label name="support" />
-				</a>
+				<!-- the support link is begin with "mailto:" -->
+				<roundcube:if condition="stripos(config:support_url, 'mailto:') === 0" />
+					<a href="<roundcube:var name='config:support_url' />" class="support-link"
+						title="<roundcube:exp expression='substr(config:support_url, 7)' />" data-toggle="tooltip">
+						寫信給網管
+					</a>
+				<!-- support link is not writing an email -->
+				<roundcube:else />
+					<a href="<roundcube:var name='config:support_url' />" target="_blank" class="support-link">
+						<roundcube:label name="support" />
+					</a>
+				<roundcube:endif />
 			<roundcube:endif />
 			<roundcube:container name="loginfooter" id="login-footer" />
 		</div>
