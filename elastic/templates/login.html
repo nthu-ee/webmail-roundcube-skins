@@ -28,10 +28,6 @@
 		</p>
 		-->
 		<div id="login-footer" role="contentinfo">
-			<a href="https://rcmail.ee.nthu.edu.tw/" class="support-link badge badge-danger"
-				title="此系統不收信，僅供閱讀舊信件。" data-toggle="tooltip">
-				舊信件系統
-			</a>
 			<!-- must have this merged https://github.com/roundcube/roundcubemail/pull/6829 -->
 			<roundcube:if condition="config:support_url" />
 				<roundcube:if condition="stripos(config:support_url, 'mailto:') === 0" />
