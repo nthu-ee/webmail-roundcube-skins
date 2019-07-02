@@ -5592,6 +5592,10 @@ body.task-login #rcmloginsubmit {
   content: "\f071";
   font-weight: 900
 }
+.fas.fa-globe:before {
+  content: "\f0ac";
+  font-weight: 900
+}
 .popover,
 body,
 button,
