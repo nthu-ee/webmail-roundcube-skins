@@ -88,12 +88,23 @@ body.task-login {
     opacity: 1;
 }
 
-.fa, .fas {
-    font-family: Icons;
+.fas {
+    @fas-icons:
+        envelope,
+        exclamation-triangle,
+        ;
 
-    &.fa-exclamation-triangle:before {
-        .font-icon-solid(@fa-var-exclamation-triangle);
+    &:before {
+        font-family: Icons;
     }
+
+    each(@fas-icons, {
+      &.fa-@{value}:before {
+        @fa-var-name: "fa-var-@{value}";
+
+        .font-icon-solid(@@fa-var-name);
+      }
+    });
 }
 
 /********************/
