@@ -5564,7 +5564,7 @@ body.task-login #login-footer {
   font-size: 1.35rem
 }
 body.task-login #product-title {
-  font-family: Roboto,sans-serif
+  font-family: Roboto,"微软雅黑","微軟正黑體",Meiryo,sans-serif
 }
 body.task-login #product-title > .badge {
   font-size: 60%;
@@ -5583,11 +5583,13 @@ body.task-login #rcmloginsubmit {
 .opaque {
   opacity: 1
 }
-.fa,
-.fas {
+.fas:before {
   font-family: Icons
 }
-.fa.fa-exclamation-triangle:before,
+.fas.fa-envelope:before {
+  content: "\f0e0";
+  font-weight: 900
+}
 .fas.fa-exclamation-triangle:before {
   content: "\f071";
   font-weight: 900
@@ -5603,8 +5605,8 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: Roboto,PMingLiU,sans-serif
+  font-family: Roboto,"新細明體","微软雅黑","微軟正黑體",Meiryo,sans-serif
 }
 .tooltip {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",PMingLiU,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+  font-family: Roboto,"新細明體","微软雅黑","微軟正黑體",Meiryo,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
 }
