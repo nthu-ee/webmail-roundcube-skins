@@ -86,25 +86,25 @@ ul.treelist li div.treetoggle:before {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'),local('Roboto-Regular'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-regular.woff2) format('woff2'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-regular.woff) format('woff')
+  src: local('Roboto'),local('Roboto-Regular'),url(../fonts/roboto-v19-regular.woff2) format('woff2'),url(../fonts/roboto-v19-regular.woff) format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: italic;
   font-weight: 400;
-  src: local('Roboto Italic'),local('Roboto-Italic'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-italic.woff2) format('woff2'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-italic.woff) format('woff')
+  src: local('Roboto Italic'),local('Roboto-Italic'),url(../fonts/roboto-v19-italic.woff2) format('woff2'),url(../fonts/roboto-v19-italic.woff) format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Bold'),local('Roboto-Bold'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-700.woff2) format('woff2'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-700.woff) format('woff')
+  src: local('Roboto Bold'),local('Roboto-Bold'),url(../fonts/roboto-v19-regular-700.woff2) format('woff2'),url(../fonts/roboto-v19-regular-700.woff) format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: italic;
   font-weight: 700;
-  src: local('Roboto Bold Italic'),local('Roboto-BoldItalic'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-700italic.woff2) format('woff2'),url(../fonts/roboto-v18-greek-ext_cyrillic-ext_cyrillic_greek_latin-ext_latin-700italic.woff) format('woff')
+  src: local('Roboto Bold Italic'),local('Roboto-BoldItalic'),url(../fonts/roboto-v19-italic-700.woff2) format('woff2'),url(../fonts/roboto-v19-italic-700.woff) format('woff')
 }
 .popover,
 body,
@@ -5524,6 +5524,10 @@ body.status-flagged #message-header .subject:before {
 }
 #composestatusbar a.button:before {
   line-height: 2.5rem
+}
+.settings-default-icon li > a:before,
+.settings-default-icon tr > td.section::before {
+  content: "\f013"
 }
 html.layout-phone #layout-menu .popover-header {
   background: 0 0;
