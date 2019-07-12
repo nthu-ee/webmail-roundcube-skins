@@ -214,6 +214,12 @@ html.iframe body {
   border-right: 1px solid #d4dbde;
   background-color: #fff
 }
+#layout-sidebar.sidebar-right {
+  order: 2;
+  border-right: 0;
+  border-left: 1px solid #d4dbde;
+  flex: 3
+}
 #layout-list {
   display: flex;
   flex-direction: column;
@@ -316,7 +322,7 @@ html.layout-phone #layout-menu .popover-header a .inner {
   #layout-list,
   #layout-sidebar {
     max-width: none;
-    border: 0
+    border: 0!important
   }
   #layout > div > .header {
     background-color: #f4f4f4
@@ -1054,6 +1060,9 @@ html.touch .btn:focus {
   width: 4rem;
   height: 4rem;
   line-height: 4rem
+}
+.floating-action-buttons a.button.compose:before {
+  content: "\f304"
 }
 .floating-action-buttons a.button .inner {
   display: none
@@ -3226,19 +3235,27 @@ html.touch .messagelist td.subject .subject {
 }
 .attachmentslist {
   padding: 0;
-  margin: 0
+  margin: 0;
+  background-color: #fcfcfc;
+  border: 1px solid #f4f4f4
+}
+.attachmentslist:empty {
+  padding: 0;
+  border: 0
 }
 .attachmentslist li {
   list-style: none;
   display: inline-flex;
   white-space: nowrap;
   line-height: 2rem;
+  padding: 0 .25em;
   max-width: 100%
 }
 .attachmentslist li:before {
   content: "\f15b";
   font-weight: 400;
-  height: 2rem
+  height: 2rem;
+  margin: 0
 }
 .attachmentslist li.text:before,
 .attachmentslist li.txt:before {
@@ -3312,7 +3329,11 @@ html.touch .messagelist td.subject .subject {
 .attachmentslist li a.delete:before {
   content: "\f2ed";
   line-height: 2rem;
-  height: 2rem
+  height: 2rem;
+  margin: 0
+}
+.attachmentslist li a.dropdown:before {
+  margin: 0
 }
 .attachmentslist li.uploading:before {
   -webkit-animation: spinner-border 1.5s infinite linear;
@@ -3322,7 +3343,8 @@ html.touch .messagelist td.subject .subject {
 }
 .attachmentslist li a.filename {
   display: flex;
-  overflow: hidden
+  overflow: hidden;
+  padding: 0 .2em
 }
 .attachmentslist li .attachment-name {
   overflow: hidden;
@@ -3331,7 +3353,7 @@ html.touch .messagelist td.subject .subject {
 }
 .attachmentslist li .attachment-size {
   color: #737677;
-  padding: 0 .25em
+  padding-left: .25em
 }
 .keylist {
   padding: 0;
@@ -4018,10 +4040,15 @@ fieldset .file-upload {
   color: #737677;
   text-align: center
 }
+.file-upload .attachmentslist {
+  border: 0;
+  background: 0 0
+}
 .file-upload .attachmentslist li {
   position: relative;
   display: flex;
-  padding-right: 1.5em
+  padding-right: 1.5em;
+  margin: .15em 0
 }
 .file-upload .attachmentslist li a.filename {
   flex: 1
@@ -4029,12 +4056,11 @@ fieldset .file-upload {
 .file-upload .attachmentslist li a.cancelupload,
 .file-upload .attachmentslist li a.delete {
   position: absolute;
-  right: 0;
+  right: .25em;
   width: auto
 }
-.file-upload .attachmentslist li a.cancelupload:before,
-.file-upload .attachmentslist li a.delete:before {
-  margin: 0
+.file-upload .attachmentslist li a.dropdown {
+  margin-right: .5em
 }
 .file-upload .attachmentslist li .inner {
   display: none
