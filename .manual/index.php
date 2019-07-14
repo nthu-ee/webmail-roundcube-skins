@@ -8,6 +8,8 @@ require __DIR__ . '/include/functions.php';
   <meta charset="utf-8">
   <title>Roundcube 新版本說明手冊</title>
   <link rel="shortcut icon" href="<?= assetVersioned('../elastic/images/favicon.ico'); ?>">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <style> body { font-family: "Noto Sans TC", sans-serif; } </style>
 </head>
 <body>
   <h1 id="change-skin">如何更換使用者介面</h1>
