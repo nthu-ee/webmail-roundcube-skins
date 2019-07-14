@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/include/functions.php';
-header('Cache-Control: no-cache, private');
+\header('Cache-Control: no-cache, private');
 ?>
 <!DOCTYPE html>
 <html>
