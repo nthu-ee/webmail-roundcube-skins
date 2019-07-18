@@ -33,6 +33,9 @@ indent_style = tab
 indent_size = 4
 indent_style = space
 
+[*.{diff,patch}]
+trim_trailing_whitespace = false
+
 [babel.config.js]
 indent_size = 2
 indent_style = space
