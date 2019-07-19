@@ -5595,7 +5595,7 @@ body.task-login #login-footer {
   font-size: 1.35rem
 }
 body.task-login #product-title {
-  font-family: Roboto,"微软雅黑","微軟正黑體",Meiryo,sans-serif
+  font-family: Roboto,"Noto Sans TC","Noto Sans SC","微软雅黑","微軟正黑體",Meiryo,sans-serif
 }
 body.task-login #product-title > .badge {
   font-size: 60%;
@@ -5637,6 +5637,21 @@ optgroup,
 select,
 textarea {
   font-family: Roboto,"新細明體","微软雅黑","微軟正黑體",Meiryo,sans-serif
+}
+#login-footer,
+#message-header .subject,
+#rcmloginsubmit,
+.formcontent legend,
+.frame-content h2,
+.frame-content h3,
+.propform legend,
+.ui-dialog .ui-dialog-title {
+  font-family: Roboto,"Noto Sans TC","Noto Sans SC","微软雅黑","微軟正黑體",Meiryo,sans-serif
+}
+.formcontent legend,
+.propform legend {
+  color: #7f1085;
+  font-size: 1.4em
 }
 .tooltip {
   font-family: Roboto,"新細明體","微软雅黑","微軟正黑體",Meiryo,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
