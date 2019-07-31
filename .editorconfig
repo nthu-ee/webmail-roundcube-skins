@@ -33,6 +33,9 @@ indent_style = tab
 indent_size = 4
 indent_style = space
 
+[*.md]
+trim_trailing_whitespace = false
+
 [*.{diff,patch}]
 trim_trailing_whitespace = false
 

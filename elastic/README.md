@@ -9,6 +9,21 @@ For information about building or modifying Roundcube skins please visit
 https://github.com/roundcube/roundcubemail/wiki/Skins
 
 
+## 使用方式
+
+- 先安裝依賴
+
+  ```bash
+  $ yarn install
+  ```
+
+- 編譯 CSS/JS
+
+  ```bash
+  $ ./compile.sh
+  ```
+
+
 LICENSE
 -------
 
