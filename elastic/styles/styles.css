@@ -2279,15 +2279,20 @@ html.layout-phone .menu.pagenav input {
 .searchbar a.options:before {
   content: "\f107"
 }
-.searchbar a.reset {
-  display: none
-}
 .searchbar a.reset:before {
   content: "\f00d";
   font-size: 1rem
 }
+.searchbar a.unread:before {
+  content: "\f0e0";
+  font-weight: 900
+}
+.searchbar a.reset,
 .searchbar a.search {
   display: none
+}
+.searchbar a.selected {
+  color: #41b849
 }
 .searchbar span.inner {
   display: none
