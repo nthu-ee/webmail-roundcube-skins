@@ -107,15 +107,6 @@ ul.treelist li div.treetoggle:before {
   font-weight: 700;
   src: local('Roboto Bold Italic'),local('Roboto-BoldItalic'),url(../fonts/roboto-v19-italic-700.woff2) format('woff2'),url(../fonts/roboto-v19-italic-700.woff) format('woff')
 }
-.popover,
-body,
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: Roboto,sans-serif
-}
 button,
 input,
 select,
@@ -279,15 +270,6 @@ html.iframe #layout-content {
     max-width: 32.4px
   }
 }
-@media screen and (min-width:481px) {
-  #layout-menu .popover-header {
-    padding: 0!important;
-    background-color: #2f3a3f!important
-  }
-  #layout-menu .popover-header a {
-    display: none!important
-  }
-}
 html.layout-phone #layout-menu .popover-header {
   display: flex!important;
   align-items: center;
@@ -350,13 +332,14 @@ html.layout-phone #layout-menu .popover-header a .inner {
     display: none
   }
 }
-@media screen and (max-width:320px) {
-  #layout-list,
-  #layout-sidebar {
-    min-width: 240px
-  }
-}
 @media screen and (min-width:481px) {
+  #layout-menu .popover-header {
+    padding: 0!important;
+    background-color: #2f3a3f!important
+  }
+  #layout-menu .popover-header a {
+    display: none!important
+  }
   a.task-menu-button {
     display: none
   }
@@ -373,11 +356,6 @@ html.layout-phone #layout-menu .popover-header a .inner {
     display: none
   }
 }
-@media screen and (min-width:1025px) {
-  #layout-menu {
-    width: 72px
-  }
-}
 @media screen and (min-width:1201px) {
   #layout-list > .header > .header-title:not(.all-sizes),
   a.back-list-button,
@@ -386,28 +364,18 @@ html.layout-phone #layout-menu .popover-header a .inner {
     display: none
   }
 }
-html.layout-phone .hidden-phone {
-  display: none!important
-}
-html.layout-phone .hidden-small,
-html.layout-small .hidden-small {
-  display: none!important
-}
-html.layout-small .hidden-lbs {
-  display: none!important
-}
-html.layout-large .hidden-big,
-html.layout-large .hidden-lbs,
-html.layout-normal .hidden-big,
-html.layout-normal .hidden-lbs {
-  display: none!important
-}
-html.layout-large .hidden-large {
-  display: none!important
-}
 .hidden,
 .rcmaddcontact,
-.voice {
+.voice,
+html.layout-large .hidden-big,
+html.layout-large .hidden-large,
+html.layout-large .hidden-lbs,
+html.layout-normal .hidden-big,
+html.layout-normal .hidden-lbs,
+html.layout-phone .hidden-phone,
+html.layout-phone .hidden-small,
+html.layout-small .hidden-lbs,
+html.layout-small .hidden-small {
   display: none!important
 }
 font.bold {
@@ -496,7 +464,7 @@ p.image-attachment {
 @media screen and (max-width:480px) {
   p.image-attachment {
     float: none;
-    margin: .5rem 0 .5rem 0
+    margin: .5rem 0
   }
 }
 p.image-attachment .image-link {
@@ -1463,6 +1431,10 @@ html.touch .btn:focus {
   border-right: 0
 }
 @media screen and (max-width:320px) {
+  #layout-list,
+  #layout-sidebar {
+    min-width: 240px
+  }
   .ui-widget-content {
     border-radius: 0
   }
@@ -1782,10 +1754,8 @@ html.ie11 .menu .dropbutton a.dropdown:before {
   max-height: 1.6rem;
   margin: 0 .2rem
 }
+.menu.pagenav span.inner,
 html.layout-phone .menu.pagenav input {
-  display: none
-}
-.menu.pagenav span.inner {
   display: none
 }
 .menu.pagenav.pagenav-list {
@@ -1950,9 +1920,6 @@ html.layout-phone .menu.pagenav input {
 .menu a.contacts:before {
   content: "\f0c0"
 }
-.menu a.settings:before {
-  content: "\f1de"
-}
 .menu a.help:before {
   content: "\f1cd"
 }
@@ -1961,9 +1928,6 @@ html.layout-phone .menu.pagenav input {
 }
 .menu a.about:before {
   content: "\f128"
-}
-.menu a.refresh:before {
-  content: "\f021"
 }
 .menu a.compose:before {
   content: "\f044"
@@ -2039,11 +2003,9 @@ html.layout-phone .menu.pagenav input {
 .menu a.edit:before {
   content: "\f303"
 }
+.menu a.encrypt.sign:before,
 .menu a.encrypt:before,
 .menu a.enigma:before {
-  content: "\f023"
-}
-.menu a.encrypt.sign:before {
   content: "\f023"
 }
 .menu a.expand:before {
@@ -2356,14 +2318,8 @@ html.layout-phone .menu.pagenav input {
     padding: .45rem 0;
     min-width: unset
   }
-  #taskmenu a.selected {
-    color: #fff;
-    background: #45555c
-  }
-  #taskmenu a.selected:hover {
-    color: #fff;
-    background: #45555c
-  }
+  #taskmenu a.selected,
+  #taskmenu a.selected:hover,
   #taskmenu a:hover {
     color: #fff;
     background: #45555c
@@ -2401,6 +2357,9 @@ html.layout-phone .menu.pagenav input {
   }
 }
 @media screen and (min-width:1025px) {
+  #layout-menu {
+    width: 72px
+  }
   #taskmenu a {
     width: 72px;
     font-size: 1rem
@@ -2416,8 +2375,7 @@ html.layout-phone .menu.pagenav input {
   }
 }
 .ui.alert {
-  margin: 0;
-  margin-bottom: .2rem;
+  margin: 0 0 .2rem;
   opacity: .95;
   width: 100%;
   padding: .75em;
@@ -2426,11 +2384,6 @@ html.layout-phone .menu.pagenav input {
   background-color: rgba(55,190,255,.05);
   display: flex;
   align-items: center
-}
-@media screen and (max-width:480px) {
-  .ui.alert {
-    border: 0
-  }
 }
 .ui.alert span {
   margin: auto 0
@@ -2452,8 +2405,8 @@ html.layout-phone .menu.pagenav input {
 }
 .ui.alert.loading > i.icon:before {
   content: "\f1ce";
-  -webkit-animation: spinner-border 1.5s infinite linear;
-  animation: spinner-border 1.5s infinite linear;
+  -webkit-animation: 1.5s linear infinite spinner-border;
+  animation: 1.5s linear infinite spinner-border;
   width: 1em
 }
 .ui.alert.alert-success > i.icon:before {
@@ -2490,6 +2443,9 @@ html.layout-phone .menu.pagenav input {
   max-width: 220px
 }
 @media screen and (max-width:480px) {
+  .ui.alert {
+    border: 0
+  }
   .ui.alert .boxbuttons {
     display: flex;
     flex-direction: column
@@ -2555,6 +2511,10 @@ html.layout-phone .menu.pagenav input {
   height: auto;
   max-height: 85%
 }
+#messagestack div {
+  background-color: #2c363a;
+  color: #fff
+}
 @media screen and (max-width:480px) {
   #messagestack {
     left: 0;
@@ -2562,12 +2522,6 @@ html.layout-phone .menu.pagenav input {
     bottom: 0;
     width: auto
   }
-}
-#messagestack div {
-  background-color: #2c363a;
-  color: #fff
-}
-@media screen and (max-width:480px) {
   #messagestack div {
     margin: 0;
     border-radius: 0;
@@ -2894,11 +2848,8 @@ html.ie11 .listing.iconized li a:before {
 .popupmenu .listing li > a {
   border-left: 0
 }
-.popupmenu .listing li > a:not(.disabled):hover {
-  color: #fff;
-  background-color: #37beff
-}
-.popupmenu .listing li.selected {
+.popupmenu .listing li.selected,
+.popupmenu .listing li>a:not(.disabled):hover {
   color: #fff;
   background-color: #37beff
 }
@@ -3342,8 +3293,8 @@ html.touch .messagelist td.subject .subject {
   margin: 0
 }
 .attachmentslist li.uploading:before {
-  -webkit-animation: spinner-border 1.5s infinite linear;
-  animation: spinner-border 1.5s infinite linear;
+  -webkit-animation: 1.5s linear infinite spinner-border;
+  animation: 1.5s linear infinite spinner-border;
   content: "\f1ce";
   font-weight: 900
 }
@@ -3605,55 +3556,9 @@ input.smart-upload {
 .propform.text-only label {
   padding-bottom: 0!important
 }
-@media screen and (max-width:576px) {
-  .propform.text-only tr {
-    display: table-row
-  }
-  .propform.text-only td {
-    width: auto
-  }
-  .propform.text-only td:first-child {
-    width: 33%
-  }
-  .propform.text-only :not(tr).form-group.row .col-form-label {
-    width: 33%
-  }
-  .propform.text-only :not(tr).form-group.row > :last-child {
-    width: 67%
-  }
-}
-@media screen and (max-width:576px) {
-  .propform table.compact-table .flexbox > select,
-  .propform table.compact-table .rowactions > select {
-    width: 100%
-  }
-  .propform table.compact-table tr {
-    display: flex;
-    flex-direction: column
-  }
-  .propform table.compact-table tr td {
-    width: 100%;
-    padding: .25rem 0 0 0
-  }
-  .propform table.compact-table tr td.rowbuttons {
-    text-align: right;
-    padding-top: 0
-  }
-  .propform table.compact-table tr td.rowbuttons a {
-    margin-left: .5rem
-  }
-  .propform table.compact-table tr td.rowbuttons a > span {
-    display: inline
-  }
-}
 .formcontent fieldset:not(.tab-pane):nth-of-type(n+2),
 .propform fieldset:not(.tab-pane):nth-of-type(n+2) {
   margin-top: 1em
-}
-.formcontent legend,
-.propform legend {
-  font-weight: 700;
-  font-size: 1.2em
 }
 .formcontent label,
 .propform label {
@@ -3678,6 +3583,41 @@ fieldset.advanced > legend.closed:after {
   content: "\f107"
 }
 @media screen and (max-width:576px) {
+  .propform.text-only tr {
+    display: table-row
+  }
+  .propform.text-only td {
+    width: auto
+  }
+  .propform.text-only :not(tr).form-group.row .col-form-label,
+  .propform.text-only td:first-child {
+    width: 33%
+  }
+  .propform.text-only :not(tr).form-group.row > :last-child {
+    width: 67%
+  }
+  .propform table.compact-table .flexbox > select,
+  .propform table.compact-table .rowactions > select {
+    width: 100%
+  }
+  .propform table.compact-table tr {
+    display: flex;
+    flex-direction: column
+  }
+  .propform table.compact-table tr td {
+    width: 100%;
+    padding: .25rem 0 0
+  }
+  .propform table.compact-table tr td.rowbuttons {
+    text-align: right;
+    padding-top: 0
+  }
+  .propform table.compact-table tr td.rowbuttons a {
+    margin-left: .5rem
+  }
+  .propform table.compact-table tr td.rowbuttons a > span {
+    display: inline
+  }
   .formcontent .text-only .form-group:not(tr) {
     margin-bottom: .25rem
   }
@@ -3689,6 +3629,9 @@ fieldset.advanced > legend.closed:after {
   }
   html.iframe .formcontent > .propform {
     padding: .25rem
+  }
+  .formcontent .row.form-group > td label {
+    padding-bottom: 0
   }
 }
 html.ms .propform .row:not(.form-check) > td {
@@ -3764,11 +3707,6 @@ html.layout-small .formcontainer .formbuttons {
   padding-bottom: 0;
   border: 0
 }
-@media screen and (max-width:576px) {
-  .formcontent .row.form-group > td label {
-    padding-bottom: 0
-  }
-}
 .formcontent .row.form-check {
   padding: 0;
   display: flex;
@@ -3807,9 +3745,7 @@ html.layout-small .formcontainer .formbuttons {
   font-style: italic;
   color: #737677
 }
-.formcontent.raweditor {
-  height: 100%
-}
+.formcontent.raweditor,
 .formcontent.raweditor form {
   height: 100%
 }
@@ -3835,13 +3771,10 @@ html.layout-small .formcontainer .formbuttons {
   width: .8em
 }
 @media screen and (max-width:320px) {
-  .formcontent .col-form-label {
-    flex: auto;
-    max-width: 100%
-  }
   .formcontent .col-10,
   .formcontent .col-6,
-  .formcontent .col-8 {
+  .formcontent .col-8,
+  .formcontent .col-form-label {
     flex: auto;
     max-width: 100%
   }
@@ -3935,7 +3868,7 @@ html.layout-small .formcontainer .formbuttons {
 }
 .checklist .custom-control-label:after,
 .checklist .custom-control-label:before {
-  margin: calc(1px * -1) 0 0 0
+  margin: calc(1px * -1) 0 0
 }
 .checklist > div + br {
   display: none
@@ -4026,7 +3959,7 @@ html.layout-small .formcontainer .formbuttons {
 }
 .file-upload {
   padding: 1rem 1rem 12rem;
-  margin: 0 1rem .25rem 1rem;
+  margin: 0 1rem .25rem;
   border-radius: .5rem;
   border: .2rem dashed #d4dbde
 }
@@ -4077,7 +4010,7 @@ fieldset .file-upload {
 .file-upload.droptarget:after {
   content: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20960%20560%22%3E%3Cpath%20fill%3D%22%23d4dbde%22%20d%3D%22M690%20245c0%209.2-3.5%2017.9-10.1%2024.9l-175%20175c-6.6%206.6-15.3%2010.1-24.9%2010.1-9.2%200-18.4-3.5-24.9-10.1l-175-175c-6.6-7-10.1-15.8-10.1-24.9%200-4.4.9-9.2%202.6-13.6C277.9%20218.3%20291%20210%20305%20210h87.5V35c0-19.2%2015.8-35%2035-35h105c19.2%200%2035%2015.8%2035%2035v175H655c14%200%2027.1%208.3%2032.4%2021.4%201.7%204.4%202.6%209.2%202.6%2013.6zm0%20245H270V350h-70v140c0%2038.5%2031.5%2070%2070%2070h420c38.5%200%2070-31.5%2070-70V350h-70v140z%22%2F%3E%3C%2Fsvg%3E");
   width: 10rem;
-  margin: 5rem auto 0 auto;
+  margin: 5rem auto 0;
   display: block
 }
 .file-upload.droptarget.active {
@@ -4090,7 +4023,7 @@ fieldset .file-upload {
 .recipient-input {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 .75rem 3px .75rem;
+  padding: 0 .75rem 3px;
   list-style-type: none;
   cursor: text;
   height: auto
@@ -4167,7 +4100,7 @@ fieldset .file-upload {
 .tagedit-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 .75rem 3px .75rem;
+  padding: 0 .75rem 3px;
   margin: 0;
   list-style-type: none;
   min-height: 2.3rem
@@ -4555,9 +4488,8 @@ html.touch .custom-switch .custom-control-input:checked ~ .custom-control-label:
 .mce-window .mce-foot .mce-btn {
   color: #fff;
   background: #8b9fa7;
-  border-color: #8b9fa7;
-  border-radius: .3rem;
-  border-color: transparent
+  border-color: transparent;
+  border-radius: .3rem
 }
 .mce-window .mce-foot .mce-btn:focus {
   box-shadow: 0 0 0 .2rem rgba(139,159,167,.5)
@@ -4819,7 +4751,6 @@ html.touch .custom-switch .custom-control-input:checked ~ .custom-control-label:
 }
 .mce-window .mce-tabs .mce-tab:not(.mce-active):hover {
   border: 1px solid #f1f3f4;
-  border-bottom-color: transparent;
   border-bottom: 0
 }
 .mce-window .mce-tabs .mce-tab:focus {
@@ -4916,9 +4847,7 @@ div.mce-menubtn.mce-opened {
     line-height: 1.75;
     height: 1.75rem
   }
-  .mce-window .mce-foot .mce-container-body .mce-abs-end {
-    display: none
-  }
+  .mce-window .mce-foot .mce-container-body .mce-abs-end,
   .mce-window .mce-foot .mce-search-foot div:nth-of-type(7) button:after {
     display: none
   }
@@ -5071,9 +5000,7 @@ div.mce-menubtn.mce-opened {
   .mce-charmap-dialog + .mce-container {
     display: none
   }
-  .mce-charmap {
-    display: block
-  }
+  .mce-charmap,
   .mce-charmap tbody {
     display: block
   }
@@ -5098,8 +5025,8 @@ html.touch .mce-grid td {
   padding: .5rem
 }
 .image-selector {
-  margin: 1rem 1rem 1rem 1rem!important;
-  padding: 1rem .5rem 10rem .5rem!important
+  margin: 1rem!important;
+  padding: 1rem .5rem 10rem!important
 }
 .image-selector.droptarget {
   border: .2rem dashed #d4dbde
@@ -5252,10 +5179,8 @@ html.layout-phone .image-selector .attachmentslist {
   color: #fff;
   background-color: #37beff
 }
+.googie_list li .googie_add_to_dict:before,
 .googie_list li .googie_list_revert:before {
-  content: "\f0fe"
-}
-.googie_list li .googie_add_to_dict:before {
   content: "\f0fe"
 }
 .googie_list input {
@@ -5309,15 +5234,6 @@ html.layout-phone .image-selector .attachmentslist {
   margin: 1rem!important;
   width: auto!important;
   overflow: auto
-}
-@media screen and (min-width:769px) {
-  #login-addon {
-    max-width: 768px;
-    margin: auto!important;
-    bottom: 1rem;
-    left: 0;
-    right: 0
-  }
 }
 body.task-error-login #layout #layout-content > .header,
 body.task-error-login #layout #layout-menu {
@@ -5380,7 +5296,6 @@ body.status-flagged #message-header .subject:before {
 }
 #message-header .short-header img.contactphoto {
   margin: 0 1rem 0 0;
-  border-radius: 50%;
   width: 4rem;
   height: 4rem
 }
@@ -5514,7 +5429,7 @@ body.status-flagged #message-header .subject:before {
 }
 .message-partheaders {
   padding: .5rem 0;
-  margin: .5rem 0 0 0;
+  margin: .5rem 0 0;
   font-size: 90%;
   border-top: 1px solid #f1f3f4;
   border-bottom: 1px solid #f1f3f4;
@@ -5538,13 +5453,20 @@ body.status-flagged #message-header .subject:before {
   margin: 0
 }
 #compose-attachments {
-  margin: 1rem 1rem 0 1rem
+  margin: 1rem 1rem 0
 }
 #composestatusbar {
   position: absolute;
   opacity: .3
 }
 @media screen and (min-width:769px) {
+  #login-addon {
+    max-width: 768px;
+    margin: auto!important;
+    bottom: 1rem;
+    left: 0;
+    right: 0
+  }
   #composestatusbar {
     display: none
   }
@@ -5563,7 +5485,7 @@ body.status-flagged #message-header .subject:before {
 }
 html.layout-phone #layout-menu .popover-header {
   background: 0 0;
-  border-bottom: 1px #f1f3f4 solid;
+  border-bottom: 1px solid #f1f3f4;
   color: #2c363a
 }
 html.layout-phone body:not(.task-login) #logo {
@@ -5576,7 +5498,7 @@ html:not(.layout-phone) #logo-phone {
   display: none
 }
 body.task-login {
-  background: url(../images/blossom_mono.png) no-repeat center #fff
+  background: url(../images/blossom_mono.png) center no-repeat #fff
 }
 body.task-login #layout {
   display: flex;
@@ -5655,6 +5577,7 @@ textarea {
 }
 .formcontent legend,
 .propform legend {
+  font-weight: 700;
   color: #7f1085;
   font-size: 1.4em
 }

@@ -73,7 +73,7 @@ a.disabled:not(.btn) {
   font-family: monospace
 }
 .mce-content-body blockquote {
-  border-left: #1010ff 2px solid;
+  border-left: 2px solid #1010ff;
   margin: 0;
   padding: 0 .4em
 }
@@ -81,7 +81,7 @@ a.disabled:not(.btn) {
   font-family: Roboto,sans-serif;
   font-size: 13px;
   padding: .5em;
-  margin: 0 0 .5em 0;
+  margin: 0 0 .5em;
   opacity: .95;
   color: #2c363a;
   background-color: rgba(55,190,255,.05);
@@ -89,11 +89,9 @@ a.disabled:not(.btn) {
   align-items: center
 }
 .rcmail-inline-message:before {
-  font-size: 1.25em;
   display: block;
   float: left;
-  margin: 0 .25rem 0 0;
-  width: 1.18em;
+  margin: 0 .3em 0 0;
   height: 1em;
   font-family: Icons;
   font-style: normal;
@@ -107,7 +105,6 @@ a.disabled:not(.btn) {
   font-size: 1.5em;
   line-height: 1;
   width: 1em;
-  margin-right: .3em;
   content: "\f071";
   color: #ffd452
 }
