@@ -1168,8 +1168,7 @@ html.touch .btn:focus {
 .ui-dialog .ui-dialog-title {
   line-height: 54px;
   font-size: 1.25rem;
-  padding: 0 3rem 0 1rem;
-  color: #2c363a
+  padding: 0 3rem 0 1rem
 }
 .ui-dialog .ui-dialog-titlebar-close {
   border: 0;
@@ -3560,6 +3559,11 @@ input.smart-upload {
 .propform fieldset:not(.tab-pane):nth-of-type(n+2) {
   margin-top: 1em
 }
+.formcontent legend,
+.propform legend {
+  font-weight: 700;
+  font-size: 1.4em
+}
 .formcontent label,
 .propform label {
   -webkit-hyphens: auto;
@@ -5576,10 +5580,9 @@ textarea {
   font-family: Roboto,"Noto Sans TC","Noto Sans SC","微软雅黑","微軟正黑體",Meiryo,sans-serif
 }
 .formcontent legend,
-.propform legend {
-  font-weight: 700;
-  color: #7f1085;
-  font-size: 1.4em
+.propform legend,
+.ui-dialog .ui-dialog-title {
+  color: #7f1085
 }
 .tooltip {
   font-family: Roboto,"新細明體","微软雅黑","微軟正黑體",Meiryo,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
