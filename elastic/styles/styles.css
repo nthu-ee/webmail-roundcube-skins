@@ -37,6 +37,7 @@
 .multi-input a.icon.reset:before,
 .pgpkeyimport div.key label.keyid + a:before,
 .pgpkeyimport li.uid:before,
+.popover .menu a[aria-haspopup]:after,
 .propform td.rowbuttons a:before,
 .quota-widget:before,
 .searchbar a:before,
@@ -956,19 +957,23 @@ a.button.icon.folders:before,
 button.btn.folders:before {
   content: "\f07c"
 }
+a.button.icon.options:before,
+button.btn.options:before {
+  content: "\f1de"
+}
 a.button.icon.settings:before,
 a.button.icon.tools:before,
 button.btn.settings:before,
 button.btn.tools:before {
-  content: "\f0ad"
+  content: "\f013"
 }
 a.button.icon.properties:before,
 button.btn.properties:before {
   content: "\f05a"
 }
-a.button.icon.select:before,
-button.btn.select:before {
-  content: "\f058";
+a.button.icon.selection:before,
+button.btn.selection:before {
+  content: "\f14a";
   font-weight: 400
 }
 a.button.icon.insert.recipient:before,
@@ -1235,7 +1240,7 @@ html.touch .btn:focus {
   box-sizing: initial
 }
 .ui-widget-content .ui-icon.ui-resizable-se {
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20width%3D%22512px%22%20height%3D%22512px%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23888888%22%20d%3D%22M6.7%2016l9.3-9.3v-1.4l-10.7%2010.7z%22%2F%3E%3Cpath%20fill%3D%22%23888888%22%20d%3D%22M9.7%2016l6.3-6.3v-1.4l-7.7%207.7z%22%2F%3E%3Cpath%20fill%3D%22%23888888%22%20d%3D%22M12.7%2016l3.3-3.3v-1.4l-4.7%204.7z%22%2F%3E%3Cpath%20fill%3D%22%23888888%22%20d%3D%22M15.7%2016l0.3-0.3v-1.4l-1.7%201.7z%22%2F%3E%3C%2Fsvg%3E")
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23888%22%20d%3D%22M6.7%2016L16%206.7V5.3L5.3%2016zM9.7%2016L16%209.7V8.3L8.3%2016zM12.7%2016l3.3-3.3v-1.4L11.3%2016zM15.7%2016l.3-.3v-1.4L14.3%2016z%22%2F%3E%0A%3C%2Fsvg%3E%0A")
 }
 @media screen and (max-width:480px) {
   .ui-dialog {
@@ -1854,16 +1859,40 @@ html.layout-phone .menu.pagenav input {
   text-overflow: ellipsis;
   flex: 1
 }
+.popover .menu .dropbutton:not(.disabled):hover {
+  background-color: #f6f6f6
+}
 .popover .menu .dropbutton a.dropdown {
-  width: auto
+  width: 3.5rem;
+  padding: 0 .5em;
+  background-color: #f6f6f6
 }
+.popover .menu .dropbutton a.dropdown:hover {
+  background-color: #37beff
+}
+.popover .menu .dropbutton a.dropdown span.inner,
 .popover .menu .dropbutton a.dropdown:before {
-  content: "\f105";
-  line-height: inherit;
-  margin: 0
-}
-.popover .menu .dropbutton a.dropdown span.inner {
   display: none
+}
+.popover .menu a[aria-haspopup] {
+  position: realtive
+}
+.popover .menu a[aria-haspopup]:after {
+  content: "\f054";
+  float: right;
+  margin: 0;
+  color: #737677;
+  font-size: .9em
+}
+html.layout-small .popover .menu a[aria-haspopup]:after {
+  margin: 0 .2em
+}
+.popover .menu a[aria-haspopup].dropdown:after {
+  margin: 0 .5em!important;
+  color: #2c363a
+}
+.popover .menu a[aria-haspopup]:hover:after {
+  color: #fff
 }
 @media screen and (min-width:769px) {
   .content-frame-navigation {
@@ -1918,6 +1947,12 @@ html.layout-phone .menu.pagenav input {
 }
 .menu a.contacts:before {
   content: "\f0c0"
+}
+.menu a.options:before {
+  content: "\f1de"
+}
+.menu a.settings:before {
+  content: "\f013"
 }
 .menu a.help:before {
   content: "\f1cd"
@@ -2010,10 +2045,11 @@ html.layout-phone .menu.pagenav input {
 .menu a.expand:before {
   content: "\f105"
 }
-.menu a.expand.all:before,
-.menu a.expand.none:before,
-.menu a.expand.unread:before {
-  content: "\f086"
+.menu a.expand.all:before {
+  content: "\f103"
+}
+.menu a.expand.none:before {
+  content: "\f102"
 }
 .menu a.export.all:before,
 .menu a.export.selection:before,
@@ -2097,6 +2133,7 @@ html.layout-phone .menu.pagenav input {
   content: "\f2b6";
   font-weight: 400
 }
+.menu a.expand.unread:before,
 .menu a.select.unread:before,
 .menu a.unread:before {
   content: "\f0e0";
@@ -2143,14 +2180,13 @@ html.layout-phone .menu.pagenav input {
   content: "\f2ed"
 }
 .menu a.select:before {
-  content: "\f058";
-  font-weight: 400
+  content: "\f245"
 }
 .menu a.select.all:before {
-  content: "\f14a"
+  content: "\f069"
 }
 .menu a.select.invert:before {
-  content: "\f0c8"
+  content: "\f14a"
 }
 .menu a.select.none:before {
   content: "\f00d";
@@ -2161,13 +2197,11 @@ html.layout-phone .menu.pagenav input {
   font-weight: 900
 }
 .menu a.selection:before {
-  content: "\f245"
+  content: "\f14a"!important;
+  font-weight: 400!important
 }
 .menu a.send:before {
   content: "\f1d8"
-}
-.menu a.settings:before {
-  content: "\f1de"
 }
 .menu a.showurl:before {
   content: "\f0c1"
@@ -4012,7 +4046,7 @@ fieldset .file-upload {
   padding-bottom: .5rem!important
 }
 .file-upload.droptarget:after {
-  content: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20960%20560%22%3E%3Cpath%20fill%3D%22%23d4dbde%22%20d%3D%22M690%20245c0%209.2-3.5%2017.9-10.1%2024.9l-175%20175c-6.6%206.6-15.3%2010.1-24.9%2010.1-9.2%200-18.4-3.5-24.9-10.1l-175-175c-6.6-7-10.1-15.8-10.1-24.9%200-4.4.9-9.2%202.6-13.6C277.9%20218.3%20291%20210%20305%20210h87.5V35c0-19.2%2015.8-35%2035-35h105c19.2%200%2035%2015.8%2035%2035v175H655c14%200%2027.1%208.3%2032.4%2021.4%201.7%204.4%202.6%209.2%202.6%2013.6zm0%20245H270V350h-70v140c0%2038.5%2031.5%2070%2070%2070h420c38.5%200%2070-31.5%2070-70V350h-70v140z%22%2F%3E%3C%2Fsvg%3E");
+  content: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20960%20560%22%3E%0A%3Cpath%20fill%3D%22%23d4dbde%22%20d%3D%22M690%20245c0%209.2-3.5%2017.9-10.1%2024.9l-175%20175c-6.6%206.6-15.3%2010.1-24.9%2010.1-9.2%200-18.4-3.5-24.9-10.1l-175-175c-6.6-7-10.1-15.8-10.1-24.9%200-4.4.9-9.2%202.6-13.6C277.9%20218.3%20291%20210%20305%20210h87.5V35c0-19.2%2015.8-35%2035-35h105c19.2%200%2035%2015.8%2035%2035v175H655c14%200%2027.1%208.3%2032.4%2021.4%201.7%204.4%202.6%209.2%202.6%2013.6zm0%20245H270V350h-70v140c0%2038.5%2031.5%2070%2070%2070h420c38.5%200%2070-31.5%2070-70V350h-70v140z%22%2F%3E%0A%3C%2Fsvg%3E%0A");
   width: 10rem;
   margin: 5rem auto 0;
   display: block
@@ -4077,7 +4111,7 @@ fieldset .file-upload {
 .recipient-input a.button.icon {
   font-size: .8em;
   cursor: pointer;
-  padding: 0 0 0 .25em
+  padding: 0
 }
 .recipient-input a.button.icon:before {
   float: none;
