@@ -5579,6 +5579,7 @@ textarea {
 .ui-dialog .ui-dialog-title {
   font-family: Roboto,"Noto Sans TC","Noto Sans SC","微软雅黑","微軟正黑體",Meiryo,sans-serif
 }
+#message-header .subject,
 .formcontent legend,
 .propform legend,
 .ui-dialog .ui-dialog-title {
