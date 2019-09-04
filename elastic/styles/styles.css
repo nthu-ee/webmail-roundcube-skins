@@ -37,7 +37,7 @@
 .multi-input a.icon.reset:before,
 .pgpkeyimport div.key label.keyid + a:before,
 .pgpkeyimport li.uid:before,
-.popover .menu a[aria-haspopup]:after,
+.popover .menu li a[aria-haspopup]:after,
 .propform td.rowbuttons a:before,
 .quota-widget:before,
 .searchbar a:before,
@@ -1652,6 +1652,9 @@ html.touch .popover .listing li a:before {
   text-overflow: ellipsis;
   text-decoration: none
 }
+.menu a:before {
+  content: "\00a0"
+}
 .menu a:focus,
 .menu a:hover {
   outline: 0
@@ -1842,11 +1845,37 @@ html.layout-phone .menu.pagenav input {
   height: inherit!important;
   margin-right: .5rem!important;
   float: left!important;
-  width: 1.18em!important
+  width: 1.18em!important;
+  min-width: 1.18em
 }
 .popover .menu li a:not(.disabled):hover {
   color: #fff;
   background-color: #37beff
+}
+.popover .menu li a[aria-haspopup] {
+  display: flex
+}
+.popover .menu li a[aria-haspopup]:after {
+  color: #737677;
+  font-size: .9em;
+  margin: 0 0 0 .2em;
+  min-width: 1.18em;
+  content: "\f054"
+}
+html.layout-small .popover .menu li a[aria-haspopup]:after {
+  margin: 0 .2em
+}
+.popover .menu li a[aria-haspopup].dropdown:after {
+  color: #2c363a;
+  margin: 0 .6em!important
+}
+.popover .menu li a[aria-haspopup]:hover:after {
+  color: #fff
+}
+.popover .menu li a[aria-haspopup] > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1
 }
 .popover .menu li span.inner {
   font-size: 100%
@@ -1871,28 +1900,9 @@ html.layout-phone .menu.pagenav input {
   background-color: #37beff
 }
 .popover .menu .dropbutton a.dropdown span.inner,
-.popover .menu .dropbutton a.dropdown:before {
+.popover .menu .dropbutton a.dropdown:before,
+.popover .menu.no-icon a:before {
   display: none
-}
-.popover .menu a[aria-haspopup] {
-  position: realtive
-}
-.popover .menu a[aria-haspopup]:after {
-  content: "\f054";
-  float: right;
-  margin: 0;
-  color: #737677;
-  font-size: .9em
-}
-html.layout-small .popover .menu a[aria-haspopup]:after {
-  margin: 0 .2em
-}
-.popover .menu a[aria-haspopup].dropdown:after {
-  margin: 0 .5em!important;
-  color: #2c363a
-}
-.popover .menu a[aria-haspopup]:hover:after {
-  color: #fff
 }
 @media screen and (min-width:769px) {
   .content-frame-navigation {
@@ -4310,6 +4320,10 @@ fieldset .file-upload {
   box-shadow: 0 0 0 .2rem rgba(255,85,82,.25)
 }
 .form-control::placeholder {
+  color: #bbb
+}
+.form-control::-ms-input-placeholder,
+.form-control::-webkit-input-placeholder {
   color: #bbb
 }
 .invalid-feedback {
