@@ -22,7 +22,7 @@
   padding: 0;
 }
 
-.googie_list td {
+.googie_list li {
   font-size: 11px;
   cursor: pointer;
   list-style-type: none;

@@ -15,6 +15,8 @@
 .folderlist li a:before,
 .googie_list li .googie_add_to_dict:before,
 .googie_list li .googie_list_revert:before,
+.html-editor .mce-i-html:before,
+.html-editor .mce-i-plaintext:before,
 .input-group .icon:before,
 .keylist li:before,
 .listing td.action a:before,
@@ -199,6 +201,7 @@ html.iframe body {
   display: none
 }
 #layout-sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 2;
@@ -214,6 +217,7 @@ html.iframe body {
   flex: 3
 }
 #layout-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 3;
@@ -226,7 +230,6 @@ html.iframe body {
   display: flex;
   flex: 6;
   flex-direction: column;
-  min-width: 50%;
   background-color: #fff
 }
 html.iframe #layout-content {
@@ -266,11 +269,6 @@ html.iframe #layout-content {
   max-width: 72px;
   padding: .25rem
 }
-@media screen and (min-width:481px) and (max-width:1024px) {
-  #layout-menu .popover-header img {
-    max-width: 32.4px
-  }
-}
 html.layout-phone #layout-menu .popover-header {
   display: flex!important;
   align-items: center;
@@ -291,6 +289,18 @@ html.layout-phone #layout-menu .popover-header a:before {
 html.layout-phone #layout-menu .popover-header a .inner {
   display: none
 }
+.column-resizer {
+  cursor: col-resize;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: -3px;
+  width: 6px;
+  height: 100%
+}
+.sidebar-right .column-resizer {
+  left: -3px
+}
 @media screen and (max-width:1200px) {
   #layout-list,
   #layout-sidebar {
@@ -300,6 +310,16 @@ html.layout-phone #layout-menu .popover-header a .inner {
   #layout-list > .header > a.button {
     padding: 0 .25rem;
     margin: 0 .25rem
+  }
+}
+@media screen and (max-width:1024px) {
+  .column-resizer {
+    display: none
+  }
+  #layout-list,
+  #layout-sidebar {
+    width: auto!important;
+    flex: 3!important
   }
 }
 @media screen and (max-width:768px) {
@@ -1487,26 +1507,13 @@ html.touch .btn:focus {
 .popover .popover-header {
   display: none
 }
-.popover .listing li:first-child {
-  border-radius: .25rem .25rem 0 0
-}
-.popover .listing li:last-child {
-  border-radius: 0 0 .25rem .25rem
-}
-#rcmKSearchpane {
-  width: auto;
-  height: auto
-}
-#rcmKSearchpane li {
-  padding-right: .5rem
-}
-html.layout-phone #rcmKSearchpane,
-html.layout-small #rcmKSearchpane {
-  bottom: auto;
-  border: 1px solid #ced4da
-}
-html.layout-phone #rcmKSearchpane {
-  max-width: 100%!important
+@media screen and (min-width:769px) {
+  .popover .listing li:first-child {
+    border-radius: .25rem .25rem 0 0
+  }
+  .popover .listing li:last-child {
+    border-radius: 0 0 .25rem .25rem
+  }
 }
 html.layout-phone .popover:not(.select-menu),
 html.layout-small .popover:not(.select-menu) {
@@ -1577,14 +1584,26 @@ html.touch .popover .listing li a:before {
 }
 .select-menu {
   max-width: initial;
-  margin: 0
+  margin: 0;
+  height: auto
+}
+.select-menu .popover-header {
+  border-radius: .25rem .25rem 0 0!important
 }
 .select-menu .listing li a {
   padding-left: .25rem;
   outline: 0
 }
-.select-menu .popover-header {
-  border-radius: .25rem .25rem 0 0!important
+.select-menu .listing li:last-child {
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem
+}
+.select-menu.inline .listing li {
+  padding-right: .5rem
+}
+.select-menu.inline .listing li:first-child {
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem
 }
 .pgpkeyimport div.key {
   position: relative;
@@ -2386,6 +2405,9 @@ html.layout-small .popover .menu li a[aria-haspopup]:after {
   }
 }
 @media screen and (min-width:481px) and (max-width:1024px) {
+  #layout-menu .popover-header img {
+    max-width: 32.4px
+  }
   #taskmenu a {
     width: 39px;
     height: 39px;
@@ -2740,6 +2762,9 @@ ul.listing li .custom-switch .custom-control-label:before {
 html.touch ul.listing li .custom-switch .custom-control-label:after,
 html.touch ul.listing li .custom-switch .custom-control-label:before {
   margin-top: .75rem
+}
+html.touch ul.listing li .custom-switch {
+  height: 44px
 }
 ul.listing.simplelist li {
   padding: 0 .5rem
@@ -3837,7 +3862,7 @@ html.layout-small .formcontainer .formbuttons {
 .input-group .icon:before {
   margin: 0!important;
   line-height: 1;
-  font-size: 1.1em
+  font-size: 1.1rem
 }
 .input-group .icon.user:before {
   content: "\f007"
@@ -4127,7 +4152,6 @@ fieldset .file-upload {
   float: none;
   display: inline-block;
   width: 1em;
-  margin: 0;
   line-height: 1.5
 }
 .recipient-input li {
@@ -5164,37 +5188,54 @@ html.layout-phone .image-selector .attachmentslist {
 }
 .html-editor {
   position: relative;
-  display: flex;
-  margin-bottom: .25rem
+  margin-bottom: .2rem
 }
-.html-editor > .nav {
-  border-color: transparent;
-  z-index: 1;
+.html-editor .editor-toolbar {
   position: absolute;
-  right: 1rem
+  left: 1px;
+  top: 1px;
+  right: 1px;
+  border-radius: .25rem .25rem 0 0;
+  border-bottom: 1px solid #ced4da;
+  background-color: #f1f3f4
 }
-.html-editor > .nav a.active {
-  border-color: #ced4da!important
+.html-editor .editor-toolbar .mce-i-html {
+  display: block;
+  padding: 1px 5px;
+  margin: 2px;
+  width: 2rem;
+  height: 24px;
+  border: 1px solid transparent;
+  color: #595959
 }
-.html-editor > .nav a.active.mode-html {
-  background-color: #f1f3f4;
-  border-bottom-color: #f1f3f4!important
+.html-editor .editor-toolbar .mce-i-html:focus,
+.html-editor .editor-toolbar .mce-i-html:hover {
+  text-decoration: none;
+  border-color: #e2e4e7;
+  background-color: #fff
 }
-.html-editor > .nav a.active.mode-plain {
-  border-bottom-color: #fff!important
+.html-editor .mce-tinymce + textarea + .editor-toolbar,
+.html-editor.mailvelope .editor-toolbar {
+  display: none
 }
-.html-editor > .nav a:focus,
-.html-editor > .nav a:hover {
-  border-bottom-color: transparent;
-  outline: 0
+.html-editor .mce-i-html:before,
+.html-editor .mce-i-plaintext:before {
+  margin: 0;
+  width: 1em;
+  font-size: 1.2rem
+}
+.html-editor .mce-i-html:before {
+  content: "\f03e";
+  line-height: 1.2em
+}
+.html-editor .mce-i-plaintext:before {
+  content: "\f410"
 }
 .html-editor > .googie_edit_layer,
-.html-editor > .mce-tinymce,
-.html-editor > iframe,
 .html-editor > textarea {
-  margin-top: 2.55rem;
   font-family: monospace;
-  width: 100%!important
+  width: 100%!important;
+  padding-top: 2.5rem
 }
 .html-editor > iframe {
   border-radius: .3rem;
@@ -5209,14 +5250,15 @@ html.layout-phone .image-selector .attachmentslist {
   box-shadow: 0 0 0 .2rem rgba(55,190,255,.25)!important
 }
 .googie_window {
-  width: 16rem
+  width: 16rem;
+  height: auto
 }
 .googie_edit_layer {
   font-family: monospace;
   padding: .5rem .75rem;
   border: 1px solid #ced4da;
   border-radius: .3rem;
-  line-height: 1.25
+  line-height: 1.5
 }
 .googie_link {
   color: #ff5552;
@@ -5231,14 +5273,15 @@ html.layout-phone .image-selector .attachmentslist {
   color: #fff;
   background-color: #37beff
 }
-.googie_list li .googie_add_to_dict:before,
 .googie_list li .googie_list_revert:before {
+  content: "\f0e2"
+}
+.googie_list li .googie_add_to_dict:before {
   content: "\f0fe"
 }
 .googie_list input {
   display: inline-block;
-  margin: .5rem .5rem .5rem 0!important;
-  padding: .5rem .75rem!important
+  margin: .25rem .5rem
 }
 .task-login #layout-content {
   text-align: center;
@@ -5508,8 +5551,8 @@ body.status-flagged #message-header .subject:before {
   margin: 1rem 1rem 0
 }
 #composestatusbar {
-  position: absolute;
-  opacity: .3
+  opacity: .3;
+  right: 2.5rem
 }
 @media screen and (min-width:769px) {
   #login-addon {
@@ -5524,12 +5567,11 @@ body.status-flagged #message-header .subject:before {
   }
 }
 #composestatusbar a.button {
-  display: inline-block;
-  height: 2.5rem;
-  margin-right: .25rem
+  display: inline-block
 }
 #composestatusbar a.button:before {
-  line-height: 2.5rem
+  line-height: 54px;
+  font-size: 1.25rem!important
 }
 .settings-default-icon li > a:before,
 .settings-default-icon tr > td.section::before {

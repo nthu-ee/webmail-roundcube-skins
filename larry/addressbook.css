@@ -1,8 +1,8 @@
 /**
  * Roundcube webmail styles for the Address Book section
  *
- * Copyright (c) 2012-2017, The Roundcube Dev Team
- * Screendesign by FLINT / B�ro f�r Gestaltung, bueroflint.com
+ * Copyright (c) The Roundcube Dev Team
+ * Screendesign by FLINT / Büro für Gestaltung, bueroflint.com
  *
  * The contents are subject to the Creative Commons Attribution-ShareAlike
  * License. It is allowed to copy, distribute, transmit and to adapt the work
@@ -68,7 +68,7 @@
 #directorylist li a,
 .treelist li.contactsearch a,
 #contacts-table .contact td.name {
-	background-image: url(images/listicons.png?v=4f40.10460);
+	background-image: url(images/listicons.png?v=9fd7.10050);
 	background-position: -100px 0;
 	background-repeat: no-repeat;
 	overflow: hidden;
@@ -159,7 +159,7 @@
 	height: 14px;
 	text-indent: -5000px;
 	overflow: hidden;
-	background: url(images/listicons.png?v=4f40.10460) -2px -1180px no-repeat;
+	background: url(images/listicons.png?v=9fd7.10050) -2px -1180px no-repeat;
 }
 
 #contacts-table .contact td.name {
@@ -241,7 +241,7 @@
 }
 
 #contactpic.droptarget {
-	background-image: url(images/filedrop.png?v=be5d.415);
+	background-image: url(images/filedrop.png?v=7c75.380);
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -387,7 +387,7 @@ a.deletebutton {
 	height: 18px;
 	text-decoration: none;
 	text-indent: -5000px;
-	background: url(images/buttons.png?v=2e08.13608) -7px -377px no-repeat;
+	background: url(images/buttons.png?v=40b9.8741) -7px -377px no-repeat;
 }
 
 #import-box {
@@ -424,7 +424,7 @@ ul.toolbarmenu li span.removegroup {
 
 #addressbook-selector li a span,
 #contactgroup-selector li a span {
-	background: url(images/listicons.png?v=4f40.10460) 4px 20px no-repeat;
+	background: url(images/listicons.png?v=9fd7.10050) 4px 20px no-repeat;
 	display: block;
 	height: 17px;
 	min-height: 14px;
