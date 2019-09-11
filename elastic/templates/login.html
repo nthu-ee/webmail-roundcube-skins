@@ -25,7 +25,7 @@ $(function(){ $('#layout-content').removeClass('transparent'); });
 		<!--
 		<p id="login-extra-info">
 			<span class="btn btn-danger btn-lg w-100 font-weight-bold">
-				<span class="fas fa-exclamation-triangle"></span>
+				<span class="fas fa-fw fa-exclamation-triangle"></span>
 				本系統尚在測試中
 			</span>
 		</p>
@@ -36,7 +36,7 @@ $(function(){ $('#layout-content').removeClass('transparent'); });
 				<roundcube:if condition="stripos(config:support_url, 'mailto:') === 0" />
 					<!-- the support link is begin with "mailto:" -->
 					<a href="<roundcube:var name='config:support_url' />"
-						class="support-link badge badge-warning fas fa-envelope"
+						class="support-link badge badge-warning fas fa-fw fa-envelope"
 						title="<roundcube:exp expression='substr(config:support_url, 7)' />"
 						data-toggle="tooltip">
 						<roundcube:label name="support" />
@@ -44,7 +44,7 @@ $(function(){ $('#layout-content').removeClass('transparent'); });
 				<roundcube:else />
 					<!-- support link is not writing an email -->
 					<a href="<roundcube:var name='config:support_url' />" target="_blank"
-						class="support-link badge badge-warning fas fa-globe">
+						class="support-link badge badge-warning fas fa-fw fa-globe">
 						<roundcube:label name="support" />
 					</a>
 				<roundcube:endif />
