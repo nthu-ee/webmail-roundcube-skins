@@ -10,17 +10,8 @@
   },
   "globals": {
     "$": true,
-    "appUtil": true,
-    "ClipboardJS": true,
-    "dayjs": true,
-    "dayjses": true,
-    "echarts": true,
-    "Handsontable": true,
     "jQuery": true,
-    "pageResources": true,
-    "tinycolor": true,
-    "toastr": true,
-    "Vue": true
+    "UI": true
   },
   "extends": "eslint:recommended",
   "rules": {
