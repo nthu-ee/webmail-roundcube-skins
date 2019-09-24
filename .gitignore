@@ -13,3 +13,6 @@ yarn-error.log
 # git worktree
 /br-*/
 /branch-*/
+
+# 3rd-party skins
+melanie2_larry_mobile/
