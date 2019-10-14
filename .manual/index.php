@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="<?= assetVersioned('../elastic/images/favicon.ico'); ?>">
   <link rel="stylesheet" href="<?= assetVersioned('../elastic/fonts/noto_sans_tc_regular/css.css'); ?>">
   <link rel="stylesheet" href="<?= assetVersioned('../elastic/fonts/noto_sans_sc_regular/css.css'); ?>">
-  <style> body { font-family: "Noto Sans TC", "Noto Sans SC", sans-serif; } </style>
+  <link rel="stylesheet" href="<?= assetVersioned('assets/styles/index.css'); ?>">
 </head>
 <body>
   <h1 id="change-skin">如何更換使用者介面</h1>
@@ -16,10 +16,8 @@
     但 Elastic 介面在行動裝置上有比較好的表現。
     <br>
     <br>
-    <img src="<?= assetVersioned('images/change-skin.png'); ?>">
+    <img src="<?= assetVersioned('assets/images/change-skin.png'); ?>">
   </p>
-
-  <hr>
 
   <h1 id="change-mail-list-layout">不想要直接預覽郵件</h1>
   <p>
@@ -27,17 +25,15 @@
     Classic 介面的更換方式與此雷同； Elastic 介面目前無法調整。
     <br>
     <br>
-    <img src="<?= assetVersioned('images/change-mail-list-layout.png'); ?>">
+    <img src="<?= assetVersioned('assets/images/change-mail-list-layout.png'); ?>">
   </p>
-
-  <hr>
 
   <h1 id="add-to-screen-desktop">將網站加到行動裝置的主畫面</h1>
   <p>
     以下以 Google Chrome Mobile 為例。
     <br>
     <br>
-    <img src="<?= assetVersioned('images/add-to-screen-desktop.png'); ?>">
+    <img src="<?= assetVersioned('assets/images/add-to-screen-desktop.png'); ?>">
   </p>
 </body>
 </html>
