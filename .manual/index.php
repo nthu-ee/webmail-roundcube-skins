@@ -1,15 +1,12 @@
-<?php
-require __DIR__ . '/include/functions.php';
-\header('Cache-Control: no-cache, private');
-?>
+<?php require __DIR__ . '/include/functions.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Roundcube 新版本說明手冊</title>
   <link rel="shortcut icon" href="<?= assetVersioned('../elastic/images/favicon.ico'); ?>">
-  <link rel="stylesheet" href="../elastic/fonts/noto_sans_tc_regular/css.css">
-  <link rel="stylesheet" href="../elastic/fonts/noto_sans_sc_regular/css.css">
+  <link rel="stylesheet" href="<?= assetVersioned('../elastic/fonts/noto_sans_tc_regular/css.css'); ?>">
+  <link rel="stylesheet" href="<?= assetVersioned('../elastic/fonts/noto_sans_sc_regular/css.css'); ?>">
   <style> body { font-family: "Noto Sans TC", "Noto Sans SC", sans-serif; } </style>
 </head>
 <body>

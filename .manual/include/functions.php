@@ -1,13 +1,13 @@
 <?php
 
-$version = '20190624a';
+$version = '20191014a';
 
 $docRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
 $rcRoot = \realpath(__DIR__ . '/../../..');
 $manualRoot = \realpath(__DIR__ . '/..');
 
 /**
- * Make a URL versionized. Usually to prevent from being cached.
+ * Make a URL versionized for preventing from being cached.
  *
  * @param string $url the url
  *
@@ -95,12 +95,12 @@ function build_url(array $parts): string
     return
         (isset($parts['scheme']) ? "{$parts['scheme']}:" : '') .
         (isset($parts['user']) || isset($parts['host']) ? '//' : '') .
-        (isset($parts['user']) ? "{$parts['user']}" : '') .
+        ($parts['user'] ?? '') .
         (isset($parts['pass']) ? ":{$parts['pass']}" : '') .
         (isset($parts['user']) ? '@' : '') .
-        (isset($parts['host']) ? "{$parts['host']}" : '') .
+        ($parts['host'] ?? '') .
         (isset($parts['port']) ? ":{$parts['port']}" : '') .
-        (isset($parts['path']) ? "{$parts['path']}" : '') .
+        ($parts['path'] ?? '') .
         (isset($parts['query']) ? "?{$parts['query']}" : '') .
         (isset($parts['fragment']) ? "#{$parts['fragment']}" : '');
 }
