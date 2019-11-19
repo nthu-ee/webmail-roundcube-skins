@@ -1,4 +1,3 @@
-@charset "UTF-8";
 #filtersetslist td.name:before,
 #filterslist td.name:before,
 #identities-table td.mail:before,
@@ -1954,6 +1953,9 @@ html.layout-small .popover .menu li a[aria-haspopup]:after {
     color: #2c363a
   }
 }
+a.toolbar-button {
+  cursor: pointer
+}
 @media screen and (min-width:1201px) {
   a.toolbar-button {
     line-height: 1.5;
@@ -3873,7 +3875,7 @@ html.layout-small .formcontainer .formbuttons {
 .input-group .icon.host:before {
   content: "\f015"
 }
-.input-group .icon.language.before {
+.input-group .icon.language:before {
   content: "\f0ac"
 }
 .input-group .icon.cancel:before {
