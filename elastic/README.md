@@ -42,16 +42,13 @@ This folder also contains code licensed separately:
 INSTALLATION
 ------------
 
-To install dev dependencies, run `$ yarn install`.
-
 All styles are written using LESS syntax. Thus it needs to be compiled
-using the `lessc` command line tool. This comes with the `nodejs-less`
+using the `lessc` (>= 1.5.0) command line tool. This comes with the `nodejs-less`
 RPM package which depends on nodejs.
 ```
     $ lessc -x styles/styles.less > styles/styles.css
     $ lessc -x styles/print.less > styles/print.css
     $ lessc -x styles/embed.less > styles/embed.css
-    $ minify ui.js -o ui.min.js
 ```
 (the -x option minifies the CSS code)
 
