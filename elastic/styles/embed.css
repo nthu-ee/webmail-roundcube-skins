@@ -83,7 +83,7 @@ a.disabled:not(.btn) {
   margin: 0 0 .5em;
   opacity: .95;
   color: #2c363a;
-  background-color: rgba(255,255,102,.25);
+  background-color: rgba(255,212,82,.2);
   display: flex;
   align-items: center
 }

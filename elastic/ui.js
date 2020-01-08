@@ -235,7 +235,7 @@ function rcube_elastic_ui()
         // Image upload widget
         $('.image-upload').each(function() { image_upload_input(this); });
 
-        // Add HTML/Plain tabs (switch) on top of textarea with TinyMCE editor
+        // Add HTML/Plain switcher on top of textarea with TinyMCE editor
         $('textarea[data-html-editor]').each(function() { html_editor_init(this); });
 
         $('#dragmessage-menu,#dragcontact-menu').each(function() {
@@ -1045,7 +1045,7 @@ function rcube_elastic_ui()
         // Make message-objects alerts pretty (the same as UI alerts)
         $('#message-objects', context).children(':not(.ui.alert)').add('.part-notice').each(function() {
             // message objects with notice class are really warnings
-            var cl = $(this).removeClass('notice part-notice').attr('class').split(/\s/)[0] || 'warning';
+            var cl = String($(this).removeClass('notice part-notice').attr('class')).split(/\s/)[0] || 'warning';
             alert_style(this, cl);
             $(this).addClass('box' + cl);
             $('a', this).addClass('btn btn-primary btn-sm');
@@ -1351,7 +1351,7 @@ function rcube_elastic_ui()
     function tinymce_init(o)
     {
         var onload = [],
-            is_editor = $('#' + o.id).is('[data-html-editor]');
+            is_editor = $('#' + o.id).parent().is('.html-editor');
 
         // Enable autoresize plugin
         o.config.plugins += ' autoresize';
@@ -2031,7 +2031,7 @@ function rcube_elastic_ui()
         options_button.on('click', function(e) {
             var id = $(this).data('target'),
                 options = $('#' + id),
-                open = options.is(':visible');
+                open = $(bar).is('.open');
 
             if (options.length) {
                 if (!open) {
@@ -2049,7 +2049,7 @@ function rcube_elastic_ui()
                 $(bar).toggleClass('open');
 
                 $('button.search', options).off('click.search').on('click.search', function() {
-                    options_button.trigger('click');
+                    options_button.click();
                     update_func();
                 });
             }
@@ -3463,7 +3463,7 @@ function rcube_elastic_ui()
         };
 
         var open_func = function(e) {
-            var items = [],
+            var last_char, last_index = -1, items = [], index = [],
                 dialog = select.closest('.ui-dialog')[0],
                 max_height = (document.documentElement.clientHeight || $(document.body).height()) - 75,
                 max_width = $(document.body).width() - 20,
@@ -3485,9 +3485,11 @@ function rcube_elastic_ui()
 
                 if (label.length) {
                     link.text(label);
+                    index.push(this.disabled ? '' : label.charAt(0).toLowerCase());
                 }
                 else {
                     link.html('&nbsp;'); // link can't be empty
+                    index.push('');
                 }
 
                 items.push($('<li>').append(link));
@@ -3505,7 +3507,7 @@ function rcube_elastic_ui()
                     return ret;
                 })
                 .on('keydown', 'a.active', function(e) {
-                    var item, node, mode = 'next';
+                    var item, char, last, node, mode = 'next';
 
                     switch (e.which) {
                         case 27: // ESC
@@ -3520,6 +3522,7 @@ function rcube_elastic_ui()
                         case 38: // ARROW-UP
                         case 63232:
                             mode = 'previous';
+                            // no-break
                         case 40: // ARROW-DOWN
                         case 63233:
                             item = e.target.parentNode;
@@ -3530,6 +3533,27 @@ function rcube_elastic_ui()
                                 }
                             }
                             return false; // prevents from scrolling the whole page
+
+                        default:
+                            // A letter key has been pressed, search mode
+                            char = e.originalEvent.key;
+
+                            if (char && char.length == 1) {
+                                char = char.toLowerCase();
+
+                                if (last_char != char) {
+                                    last_index = -1;
+                                }
+
+                                last = index.indexOf(char, last_index + 1);
+
+                                if (last > -1 || (last = index.indexOf(char)) > -1) {
+                                    list.find('a').eq(last).focus();
+                                }
+
+                                last_char = char;
+                                last_index = last;
+                            }
                     }
                 });
 
@@ -3561,8 +3585,21 @@ function rcube_elastic_ui()
                             })
                         );
 
+                    // Find the selected item, focus it
+                    var selected = list.find('a.selected').first();
+                    if (selected.focus().length) {
+                        var list_parent = list.parent();
+
+                        // try to scroll the list so focused element is in center
+                        last_index = list.find('a').index(selected[0]);
+                        last_char = index[last_index];
+
+                        if (last_index > 5) {
+                            list_parent.scrollTop(list_parent.scrollTop() + list_parent.height()/2);
+                        }
+                    }
                     // focus first active element on the list
-                    if (rcube_event.is_keyboard(e)) {
+                    else if (rcube_event.is_keyboard(e)) {
                         list.find('a.active').first().focus();
                     }
 
@@ -3618,7 +3655,7 @@ function rcube_elastic_ui()
     function html_editor_init(obj)
     {
         // Here we support two structures
-        // 1. <div><textarea></textarea><select name="editorSelector"></div>
+        // 1. <div><textarea></textarea><select class="hidden"></div>
         // 2. <tr><td><td><td><textarea></textarea></td></tr>
         //    <tr><td><td><td><input type="checkbox"></td></tr>
 
@@ -3645,8 +3682,11 @@ function rcube_elastic_ui()
             is_table = true;
         }
         else {
-            sw = $('[name="editorSelector"]', obj.form);
+            sw = editor.next('select.hidden');
         }
+
+        // make the textarea autoresizeable
+        textarea_autoresize_init(editor);
 
         // sanity check
         if (sw.length != 1) {
@@ -3670,9 +3710,6 @@ function rcube_elastic_ui()
             // Modify the textarea cell to use 100% width
             parent.addClass('col-sm-12');
         }
-
-        // make the textarea autoresizeable
-        textarea_autoresize_init(editor);
     };
 
     /**

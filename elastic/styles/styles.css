@@ -2555,16 +2555,16 @@ a.toolbar-button {
   font-size: 1.5em!important
 }
 .ui.alert.boxerror {
-  background-color: rgba(255,85,82,.15)
+  background-color: rgba(255,85,82,.2)
 }
 .ui.alert.boxinformation {
-  background-color: rgba(55,190,255,.15)
+  background-color: rgba(55,190,255,.2)
 }
 .ui.alert.boxconfirmation {
-  background-color: rgba(65,184,73,.15)
+  background-color: rgba(65,184,73,.2)
 }
 .ui.alert.boxwarning {
-  background-color: rgba(255,255,102,.25)
+  background-color: rgba(255,212,82,.2)
 }
 .ui.alert + table {
   margin-top: 1em
@@ -2618,7 +2618,11 @@ a.toolbar-button {
   background-color: #41b849
 }
 #messagestack .alert-warning {
-  background-color: #ffd452
+  background-color: #ffd452;
+  color: #2c363a
+}
+#messagestack .alert-warning > i.icon:before {
+  color: #2c363a
 }
 #messagestack .alert-danger {
   background-color: #ff5552
@@ -4468,6 +4472,10 @@ html.touch .custom-switch .custom-control-input:checked ~ .custom-control-label:
 .mce-tinymce .mce-panel {
   border-color: #ced4da
 }
+.mce-tinymce.focused {
+  border-color: #37beff!important;
+  box-shadow: 0 0 0 .2rem rgba(55,190,255,.25)!important
+}
 .mce-tinymce,
 .mce-top-part::before,
 .mce-window {
@@ -5246,10 +5254,6 @@ html.layout-phone .image-selector .attachmentslist {
 }
 .html-editor #composebody_ifr {
   min-height: 30em
-}
-.html-editor > .mce-tinymce.focused {
-  border-color: #37beff;
-  box-shadow: 0 0 0 .2rem rgba(55,190,255,.25)!important
 }
 .googie_window {
   width: 16rem;
