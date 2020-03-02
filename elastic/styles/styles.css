@@ -4034,7 +4034,8 @@ html.layout-small .formcontainer .formbuttons {
   box-shadow: 0 0 0 .2rem rgba(255,85,82,.25)
 }
 .multi-input.is-invalid > .invalid-feedback {
-  display: inline-block
+  display: inline-block;
+  line-height: 1.5
 }
 .file-upload {
   padding: 1rem 1rem 12rem;
@@ -4134,7 +4135,6 @@ fieldset .file-upload {
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
-  display: inline-block;
   line-height: 1.1;
   padding: 3px;
   vertical-align: middle
@@ -4162,6 +4162,9 @@ fieldset .file-upload {
 }
 .recipient-input li {
   max-width: 100%
+}
+.recipient-input li:not(.recipient) {
+  user-select: text
 }
 .recipient-input input {
   width: 40px;

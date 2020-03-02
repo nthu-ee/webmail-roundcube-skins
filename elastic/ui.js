@@ -476,6 +476,7 @@ function rcube_elastic_ui()
             .addEventListener('googiespell_create', rcmail_popup_init)
             .addEventListener('setquota', update_quota)
             .addEventListener('enable-command', enable_command_handler)
+            .addEventListener('clonerow', pretty_checkbox_fix)
             .addEventListener('init', init);
 
         // Add styling for TinyMCE editor popups
@@ -706,7 +707,10 @@ function rcube_elastic_ui()
             // In compose/preview window we do not provide "Back" button, instead
             // we modify the "Mail" button in the task menu to act like it (i.e. calls 'list' command)
             if (!rcmail.env.extwin && (rcmail.env.action == 'compose' || rcmail.env.action == 'show')) {
-                $('a.mail', layout.menu).attr('onclick', "return rcmail.command('list','',this,event)");
+                $('a.mail', layout.menu).attr({
+                    'aria-disabled': false,
+                    onclick: "return rcmail.command('list','',this,event);"
+                });
             }
 
             // Append contact menu to all mailto: links
@@ -1175,6 +1179,10 @@ function rcube_elastic_ui()
      */
     function content_frame_init()
     {
+        if (!layout.list.length) {
+            return;
+        }
+
         var last_selected = env.last_selected,
             title_reset = function(title) {
                 if (typeof title !== 'string' || !title.length) {
@@ -3112,9 +3120,9 @@ function rcube_elastic_ui()
      */
     function recipient_input(obj)
     {
-        var list, input,
+        var list, input, selection = '',
             input_len_update = function() {
-                input.css('width', Math.max(40, input.val().length * 15 + 25));
+                input.css('width', Math.max(5, input.val().length * 15 + 10));
             },
             apply_func = function() {
                 // update the original input
@@ -3207,7 +3215,9 @@ function rcube_elastic_ui()
 
         list = $('<ul>').addClass('form-control recipient-input ac-input rounded-left')
             .append($('<li>').append(input))
-            .on('click', function() { input.focus(); });
+            // "selection" hack to allow text selection in the recipient box or multiple boxes (#7129)
+            .on('mouseup', function () { selection = window.getSelection().toString(); })
+            .on('click', function() { if (!selection.length) input.focus(); });
 
         // Hide the original input/textarea
         // Note: we do not remove the original element, and we do not use
@@ -3425,6 +3435,19 @@ function rcube_elastic_ui()
         checkbox.addClass('form-check-input custom-control-input')
             .wrap('<div class="custom-control custom-switch">')
             .parent().append(label);
+    };
+
+    /**
+     * Fix pretty checkbox input in a cloned element
+     */
+    function pretty_checkbox_fix(params)
+    {
+        var id, input = $(params.row).find('input[id^=icochk]');
+
+        if (input.length) {
+            id = 'icochk' + (++env.checkboxes);
+            input.attr('id', id).next('label').attr('for', id);
+        }
     };
 
     /**
