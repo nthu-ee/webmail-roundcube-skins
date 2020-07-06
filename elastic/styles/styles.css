@@ -33,6 +33,7 @@
 .messagelist span.attachment span,
 .messagelist span.flagged:before,
 .messagelist td.subject span.msgicon.status:before,
+.messagelist tr.flaggedroot:not(:hover) span.unflagged:before,
 .messagelist tr.thread td.threads div:before,
 .messagelist tr:hover span.unflagged:before,
 .multi-input a.icon.reset:before,
@@ -3007,9 +3008,6 @@ ul.treelist.notree li > a {
   padding-right: 2.8em;
   font-weight: 700
 }
-.folderlist li.mailbox.recent {
-  color: #00f
-}
 .folderlist li.mailbox .unreadcount {
   position: absolute;
   top: 0;
@@ -3028,8 +3026,11 @@ html.touch .folderlist li.mailbox .unreadcount {
   line-height: 2rem;
   margin: 9px
 }
-.folderlist li.mailbox.recent > .unreadcount {
-  background: #00f;
+.folderlist li.mailbox.recent > a {
+  color: #008cd0
+}
+.folderlist li.mailbox.recent > a > .unreadcount {
+  background: #37beff;
   color: #fff
 }
 .folderlist li.mailbox.root {
@@ -3211,6 +3212,10 @@ tr.deleted .messagelist td.subject span.msgicon.status:before {
 }
 .messagelist span.flagged:before {
   content: "\f024"
+}
+.messagelist tr.flaggedroot:not(:hover) span.unflagged:before {
+  content: "\f024";
+  color: rgba(115,118,119,.75)
 }
 .messagelist tr:hover span.unflagged:before {
   content: "\f024";
@@ -4115,7 +4120,7 @@ fieldset .file-upload {
 .recipient-input .recipient {
   display: flex;
   position: relative;
-  max-width: 50%;
+  max-width: calc(50% - 3px);
   border: 1px solid #ced4da;
   background-color: #f1f3f4;
   border-radius: .25em;
@@ -4166,9 +4171,12 @@ fieldset .file-upload {
 .recipient-input li:not(.recipient) {
   user-select: text
 }
+.recipient-input li.input {
+  flex: 1;
+  min-width: 100px
+}
 .recipient-input input {
-  width: 40px;
-  max-width: 100%;
+  width: 100%;
   background: 0 0!important;
   border: 0!important;
   margin-top: 3px;
@@ -4520,11 +4528,12 @@ html.touch .custom-switch .custom-control-input:checked ~ .custom-control-label:
   right: 0;
   top: 0;
   position: absolute;
-  height: 53.3px;
+  height: 53.25px;
   width: 1.25em;
-  margin: .25rem;
+  margin: 0 .25rem;
   padding: .1rem .75rem;
-  cursor: pointer
+  cursor: pointer;
+  outline: 0
 }
 .mce-window .mce-window-head .mce-close:before {
   content: "\f00d";
@@ -5248,7 +5257,8 @@ html.layout-phone .image-selector .attachmentslist {
 .html-editor > textarea {
   font-family: monospace;
   width: 100%!important;
-  padding-top: 2.5rem
+  padding-top: 2.5rem;
+  resize: none
 }
 .html-editor > iframe {
   border-radius: .3rem;
@@ -5401,7 +5411,8 @@ body.status-flagged #message-header .subject:before {
 #message-header .short-header img.contactphoto {
   margin: 0 1rem 0 0;
   width: 4rem;
-  height: 4rem
+  height: 4rem;
+  object-fit: cover
 }
 #message-header .short-header div.header-content {
   min-height: 4rem;

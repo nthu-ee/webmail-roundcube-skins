@@ -5,6 +5,9 @@ body {
 #print-layout {
   margin: 1rem
 }
+#print-layout #logo {
+  max-height: 80px
+}
 #print-layout .image-attachment .image-link {
   margin-bottom: .5rem
 }

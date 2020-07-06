@@ -1558,9 +1558,7 @@ function rcube_elastic_ui()
 
             case 'compose-encrypted':
                 // show the toolbar button for Mailvelope
-                if (args.status) {
-                    $('.toolbar a.encrypt').parent().show();
-                }
+                $('.toolbar a.encrypt').parent().show();
                 break;
 
             case 'compose-encrypted-signed':
@@ -3121,9 +3119,6 @@ function rcube_elastic_ui()
     function recipient_input(obj)
     {
         var list, input, selection = '',
-            input_len_update = function() {
-                input.css('width', Math.max(5, input.val().length * 15 + 10));
-            },
             apply_func = function() {
                 // update the original input
                 $(obj).val(list.text() + input.val());
@@ -3169,12 +3164,11 @@ function rcube_elastic_ui()
 
                 input.val(result.text);
                 apply_func();
-                input_len_update();
 
                 return result.recipients.length > 0;
             },
-            parse_func = function(e) {
-                var paste, value = this.value;
+            parse_func = function(e, ac) {
+                var last, paste, value = this.value;
 
                 // On paste the text is not yet in the input we have to use clipboard.
                 // Also because on paste new-line characters are replaced by spaces (#6460)
@@ -3184,6 +3178,16 @@ function rcube_elastic_ui()
                     // insert pasted text in place of the selection (or just cursor position)
                     value = value.substring(0, this.selectionStart) + paste + value.substring(this.selectionEnd);
                     e.preventDefault();
+                }
+                // #7231: When clicking on autocompletion list a change event
+                // is fired twice. We have to remove last recipient box if it is
+                // the same recpient (with incomplete email address).
+                // FIXME: Anyone with a better solution?
+                else if (ac) {
+                    last = list.find('li.recipient').last();
+                    if (last.length && this.value.indexOf(last.text().replace(/[ ,]+$/, '')) > -1) {
+                        last.remove();
+                    }
                 }
 
                 update_func(value);
@@ -3201,20 +3205,17 @@ function rcube_elastic_ui()
                         return false;
                     }
                 }
-
-                input_len_update();
             };
 
         // Create the input element and "editable" area
         input = $('<input>').attr({type: 'text', tabindex: $(obj).attr('tabindex')})
             .on('paste change', parse_func)
-            .on('input', input_len_update) // only to fix input length after paste
             .on('keydown', keydown_func)
             .on('blur', function() { list.removeClass('focus'); })
             .on('focus mousedown', function() { list.addClass('focus'); });
 
         list = $('<ul>').addClass('form-control recipient-input ac-input rounded-left')
-            .append($('<li>').append(input))
+            .append($('<li class="input">').append(input))
             // "selection" hack to allow text selection in the recipient box or multiple boxes (#7129)
             .on('mouseup', function () { selection = window.getSelection().toString(); })
             .on('click', function() { if (!selection.length) input.focus(); });
@@ -3741,37 +3742,40 @@ function rcube_elastic_ui()
      */
     function textarea_autoresize_init(textarea)
     {
-        var resize = function(e) {
-            clearTimeout(env.textarea_timer);
-            env.textarea_timer = setTimeout(function() {
-                var area = $(e.target),
-                    initial_height = area.data('initial-height'),
-                    scroll_height = area[0].scrollHeight;
-
-                // do nothing when the area is hidden
-                if (!scroll_height) {
+        var padding = parseInt($(textarea).css('padding-top')) + parseInt($(textarea).css('padding-bottom')) + 2,
+            // FIXME: Is there a better way to get initial height of the textarea?
+            //        At this moment clientHeight/offsetHeight is 0.
+            min_height = ($(textarea)[0].rows || 5) * 21,
+            resize = function(e) {
+                if (this.scrollHeight - padding <= min_height) {
                     return;
                 }
 
-                if (!initial_height) {
-                    area.data('initial-height', initial_height = scroll_height);
+                // To fix scroll-jump issue in Edge we'll find the scrolling parent
+                // and re-apply scrollTop value after we reset textarea height
+                var scroll_element, scroll_pos = 0;
+                $(e.target).parents().each(function() {
+                    if (this.scrollTop > 0) {
+                        scroll_element = this;
+                        scroll_pos = this.scrollTop;
+                        return false;
+                    }
+                });
+
+                var oldHeight = $(this).outerHeight();
+                $(this).outerHeight(0);
+                var newHeight = Math.max(min_height, this.scrollHeight);
+                $(this).outerHeight(oldHeight);
+                if (newHeight !== oldHeight) {
+                    $(this).height(newHeight);
                 }
 
-                // strange effect in Chrome/Firefox when you delete a line in the textarea
-                // the scrollHeight is not decreased by the line height, but by 2px
-                // so jumps up many times in small steps, we'd rather use one big step
-                if (area.outerHeight() - scroll_height == 2) {
-                    scroll_height -= 19; // 21px is the assumed line height
+                if (scroll_pos) {
+                    scroll_element.scrollTop = scroll_pos;
                 }
+            };
 
-                area.outerHeight(Math.max(initial_height, scroll_height));
-            }, 10);
-        };
-
-        $(textarea).css('overflow-y', 'hidden').on('input', resize).trigger('input');
-
-        // Make sure the height is up-to-date also in time intervals
-        setInterval(function() { $(textarea).trigger('input'); }, 1000);
+        $(textarea).on('input', resize).trigger('input');
     };
 
     // Inititalizes smart list input
