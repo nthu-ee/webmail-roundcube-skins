@@ -32,6 +32,7 @@
 .message-part blockquote span.blockquote-link:after,
 .messagelist span.attachment span,
 .messagelist span.flagged:before,
+.messagelist td.subject span.msgicon.status.replied.forwarded:after,
 .messagelist td.subject span.msgicon.status:before,
 .messagelist tr.flaggedroot:not(:hover) span.unflagged:before,
 .messagelist tr.thread td.threads div:before,
@@ -3187,10 +3188,20 @@ table.fixedcopy {
   font-weight: 900;
   font-size: 1rem
 }
-tr.deleted .messagelist td.subject span.msgicon.status:before {
-  content: "\f05e";
+.messagelist td.subject span.msgicon.status.replied.forwarded:after {
+  content: "\f064";
   font-weight: 900;
+  font-size: 1rem;
+  opacity: .5;
+  margin: 0 -.1em 0 -1.25em
+}
+.messagelist tr.deleted td.subject span.msgicon.status:before {
+  content: "\f05e"!important;
+  font-weight: 900!important;
   font-size: 1rem
+}
+.messagelist tr.deleted td.subject span.msgicon.status:after {
+  display: none!important
 }
 .messagelist span.attachment span {
   color: rgba(115,118,119,.75)
