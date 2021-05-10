@@ -79,37 +79,37 @@ ul.treelist li div.treetoggle:before {
   font-family: Icons;
   font-style: normal;
   font-weight: 900;
-  src: url(../fonts/fa-solid-900.woff2) format('woff2'),url(../fonts/fa-solid-900.woff) format('woff')
+  src: url("../fonts/fa-solid-900.woff2") format('woff2'),url("../fonts/fa-solid-900.woff") format('woff')
 }
 @font-face {
   font-family: Icons;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/fa-regular-400.woff2) format('woff2'),url(../fonts/fa-regular-400.woff) format('woff')
+  src: url("../fonts/fa-regular-400.woff2") format('woff2'),url("../fonts/fa-regular-400.woff") format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'),local('Roboto-Regular'),url(../fonts/roboto-v19-regular.woff2) format('woff2'),url(../fonts/roboto-v19-regular.woff) format('woff')
+  src: local('Roboto'),local('Roboto-Regular'),url('../fonts/roboto-v19-regular.woff2') format('woff2'),url('../fonts/roboto-v19-regular.woff') format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: italic;
   font-weight: 400;
-  src: local('Roboto Italic'),local('Roboto-Italic'),url(../fonts/roboto-v19-italic.woff2) format('woff2'),url(../fonts/roboto-v19-italic.woff) format('woff')
+  src: local('Roboto Italic'),local('Roboto-Italic'),url('../fonts/roboto-v19-italic.woff2') format('woff2'),url('../fonts/roboto-v19-italic.woff') format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Bold'),local('Roboto-Bold'),url(../fonts/roboto-v19-regular-700.woff2) format('woff2'),url(../fonts/roboto-v19-regular-700.woff) format('woff')
+  src: local('Roboto Bold'),local('Roboto-Bold'),url('../fonts/roboto-v19-regular-700.woff2') format('woff2'),url('../fonts/roboto-v19-regular-700.woff') format('woff')
 }
 @font-face {
   font-family: Roboto;
   font-style: italic;
   font-weight: 700;
-  src: local('Roboto Bold Italic'),local('Roboto-BoldItalic'),url(../fonts/roboto-v19-italic-700.woff2) format('woff2'),url(../fonts/roboto-v19-italic-700.woff) format('woff')
+  src: local('Roboto Bold Italic'),local('Roboto-BoldItalic'),url('../fonts/roboto-v19-italic-700.woff2') format('woff2'),url('../fonts/roboto-v19-italic-700.woff') format('woff')
 }
 button,
 input,
@@ -3015,7 +3015,7 @@ ul.treelist.notree li > a {
   right: 0;
   min-width: 2em;
   line-height: 1.4rem;
-  margin: 6.9px;
+  margin: 13.8px/2;
   padding: 0 .3em;
   border-radius: .4em;
   background: #37beff;
@@ -3025,7 +3025,7 @@ ul.treelist.notree li > a {
 }
 html.touch .folderlist li.mailbox .unreadcount {
   line-height: 2rem;
-  margin: 9px
+  margin: 18px/2
 }
 .folderlist li.mailbox.recent > a {
   color: #008cd0
@@ -5430,7 +5430,7 @@ body.status-flagged #message-header .subject:before {
   flex: 1
 }
 #message-header .short-header div.header-subject {
-  line-height: 2rem
+  line-height: 4rem/2
 }
 #message-header .short-header div.header-subject > span {
   line-height: 1.5;
