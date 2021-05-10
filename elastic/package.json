@@ -6,10 +6,10 @@
     "@babel/runtime": "^7.12",
     "babelify": "^10",
     "browserify": "^17",
-    "clean-css-cli": "^4.3.0",
+    "clean-css-cli": "^5",
     "core-js": "^3",
     "eslint": "^7.4.0",
-    "less": "^3.9.0",
+    "less": "^4",
     "terser": "^5"
   }
 }
